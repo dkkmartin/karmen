@@ -1,7 +1,55 @@
 ---
 import '../styles/global.css'
+import {Image, Picture} from '@astrojs/image/components'
+import logo from '../assets/karmen-logo.svg'
+import button from '../components/Button.astro'
+import Button from '../components/Button.astro';
 ---
 
 <footer>
-  
+  <Image src={logo} alt="Karmen logo"></Image>
+  <ul>
+    <li class="active"><a href="">Forside</a></li>
+    <li><a href="">Produkter</a></li>
+    <li><a href="">Mere info</a></li>
+    <li><a href=""><i class="fa-solid fa-cart-plus"></i>Kurv</a></li>
+  </ul>
+  <div>
+    <i class="fa-solid fa-envelope" style="color: #92d5f6;"></i>
+    <input type="email">
+    <Button class='sub__btn' title='Abonner'></Button>
+  </div>
 </footer>
+
+<style>
+  footer {
+    background-color: var(--primary-bg-color);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    justify-content: space-around;
+    height: 389px;
+    padding: 0 4em;
+  }
+
+  ul {
+    display: flex;
+    color: var(--secondary-font-blue);
+    font-weight: 500;
+  }
+
+  li {
+    padding: 2em;
+  }
+
+  .active {
+    background-color: var(--secondary-bg-color);
+    box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    color: white;
+  }
+
+  .sub__btn {
+    
+  }
+</style>

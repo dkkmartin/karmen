@@ -6,8 +6,8 @@ import hero from '../assets/hero-big.webp'
 ---
 
 <StartLayout>
-  <section>
-    <Image class="hero__image" src={hero}></Image>
+  <section class="max">
+    <Image class="hero__image" src={hero} alt="Karmen køkken"></Image>
     <div class="hero__title">
       <h1>Karmen</h1>
       <p>- En grønnere udsigt</p>
@@ -19,11 +19,13 @@ import hero from '../assets/hero-big.webp'
   .hero__image {
     width: 100vw;
     height: 100vh;
+    object-fit: cover;
   }
-
+  
   .hero__title {
     position: absolute;
-    top: 5em;
+    top: 50%;
+    right: 20%;
   }
 
   h1, p {

@@ -1,0 +1,14 @@
+---
+const { title, class: className } = Astro.props;
+---
+
+<button class={className}>{title}</button>
+
+<style>
+  button {
+    background: linear-gradient(226.96deg, #FFE9E9 27.89%, #F9C4D2 83.86%);
+    border: none;
+    padding: 1em 2em;
+    border-radius: 50px;
+  }
+</style>

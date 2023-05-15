@@ -5,13 +5,13 @@ import {Image, Picture} from '@astrojs/image/components'
 ---
 
 <header>
-  <Image src={logo} format='svg' width='117px' height='50px' alt="Logo for Karmen webshop" />
+  <Image src={logo} width='117px' height='50px' alt="Logo for Karmen webshop" />
   <nav>
     <ul>
       <li><a href="">Forside</a></li>
       <li><a href="">Produkter</a></li>
       <li><a href="">Mere info</a></li>
-      <li><a href="">Kurv</a></li>
+      <li><a href=""><i class="fa-solid fa-cart-plus"></i>Kurv</a></li>
     </ul>
   </nav>
 </header>
@@ -27,12 +27,7 @@ import {Image, Picture} from '@astrojs/image/components'
 
   ul {
     display: flex;
-    gap: calc(4em - 4px);
-    list-style-type: none;
-  }
-
-  a {
-    text-decoration: none;
-    color: inherit;
+    gap: 4em;
+    font-weight: 500;
   }
 </style>
