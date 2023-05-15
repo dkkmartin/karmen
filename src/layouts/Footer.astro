@@ -9,15 +9,18 @@ import Button from '../components/Button.astro';
 <footer>
   <Image src={logo} alt="Karmen logo"></Image>
   <ul>
-    <li class="active"><a href="">Forside</a></li>
+    <li class="active__footer"><a href="">Forside</a></li>
     <li><a href="">Produkter</a></li>
     <li><a href="">Mere info</a></li>
     <li><a href=""><i class="fa-solid fa-cart-plus"></i>Kurv</a></li>
   </ul>
-  <div>
-    <i class="fa-solid fa-envelope" style="color: #92d5f6;"></i>
-    <input type="email">
-    <Button class='sub__btn' title='Abonner'></Button>
+  <div class="sub__con">
+    <h5>Tilmeld dig vores nyhedsbrev</h5>
+    <div class="sub__btn__con">
+      <i class="fa-solid fa-envelope" style="color: #92d5f6;"></i>
+      <input type="email" placeholder="Din Email">
+      <Button class='sub__btn' title='Abonner'></Button>
+    </div>
   </div>
 </footer>
 
@@ -42,14 +45,47 @@ import Button from '../components/Button.astro';
     padding: 2em;
   }
 
-  .active {
-    background-color: var(--secondary-bg-color);
-    box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    color: white;
+  .sub__con {
+    position: relative;
+    bottom: 65%;
+    right: 50%;
+    transform: translate(-50%);
+  }
+
+  .sub__btn__con {
+    display: grid;
+    grid-template-columns: 1fr 10fr 1fr;
+    align-items: center;
+    padding: 0.5em;
+    gap: 1em;
+    background-color: #fff;
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+  }
+
+  .fa-envelope {
+    justify-self: end;
+  }
+
+  input {
+    border: none;
+    height: 50%;
   }
 
   .sub__btn {
-    
+    font-weight: 400;
+    width: 200px;
+    height: 80px;
+    font-size: 18px;
+    transition: transform 0.5s;
+  }
+
+  .sub__btn:hover {
+    transform: translateX(-12px) scale(1.2);
+  }
+
+  h5 {
+    text-align: center;
+    font-size: 24px;
   }
 </style>
