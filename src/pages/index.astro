@@ -1,14 +1,42 @@
 ---
 import '../styles/global.css'
 import StartLayout from '../layouts/StartLayout.astro'
+import {Image, Picture} from '@astrojs/image/components'
+import hero from '../assets/hero-big.webp'
 ---
 
 <StartLayout>
   <section>
-    
+    <Image class="hero__image" src={hero}></Image>
+    <div class="hero__title">
+      <h1>Karmen</h1>
+      <p>- En grønnere udsigt</p>
+    </div>
   </section>
 </StartLayout>
 
 <style>
-  
+  .hero__image {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .hero__title {
+    position: absolute;
+    top: 5em;
+  }
+
+  h1, p {
+    color: white;
+    text-align: right;
+  }
+
+  h1 {
+    font-size: 64px;
+  }
+
+  p {
+    font-style: italic;
+    font-size: 36px;
+  }
 </style>
