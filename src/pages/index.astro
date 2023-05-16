@@ -9,11 +9,21 @@ import plante from '../assets/plante_3.png'
 import articleImage1 from '../assets/historier_1.png'
 import articleImage2 from '../assets/historier_2.png'
 import articleImage3 from '../assets/studerende_1.png'
+import instaImage1 from '../assets/galleri_1.jpg'
+import instaImage2 from '../assets/galleri_2.jpg'
+import instaImage3 from '../assets/galleri_3.jpg'
+import instaImage4 from '../assets/galleri_4.jpg'
+import instaImage5 from '../assets/galleri_5.jpg'
+import instaImage6 from '../assets/galleri_6.jpg'
+import instaImage7 from '../assets/galleri_7.jpg'
+import instaImage8 from '../assets/galleri_8.jpg'
+import instaImage9 from '../assets/galleri_9.jpg'
+import instaImage10 from '../assets/galleri_10.jpg'
 ---
 
 <StartLayout>
   <section class="section__hero">
-    <Image class="hero__image" format='webp' src={hero} alt="Karmen køkken"></Image>
+    <Image class="hero__image" format={'webp'} src={hero} alt="Karmen køkken"></Image>
     <div class="hero__title">
       <h1>Karmen</h1>
       <p class="p--italic">- En grønnere udsigt</p>
@@ -28,7 +38,7 @@ import articleImage3 from '../assets/studerende_1.png'
       <div class="section__con__products">
         <div class="product product__staffeli">
           <div class="product__image image--staffeli">
-            <Image format='webp' src={staffeli} width={108} height={134} alt="Mini staffeli"></Image>
+            <Image format={'webp'} src={staffeli} width={108} height={134} alt="Mini staffeli"></Image>
           </div>
           <div class="product--title">
             <p class="p--bold">Mini staffeli</p>
@@ -41,7 +51,7 @@ import articleImage3 from '../assets/studerende_1.png'
         </div>
         <div class="product product__sukkulent">
           <div class="product__image">
-            <Image format='webp' src={plante} width={108} height={134} alt="Sukkulent"></Image>
+            <Image format={'webp'} src={plante} width={108} height={134} alt="Sukkulent"></Image>
           </div>
           <div class="product--title">
             <p class="p--bold">Sukkulent</p>
@@ -56,10 +66,10 @@ import articleImage3 from '../assets/studerende_1.png'
     </section>
     <section class="section__history">
         <h3>Oplev vores historier</h3>
-        <h3 class="h3--faded">missionen om bæredygtighed</h3>
+        <h3 class="heading--faded">missionen om bæredygtighed</h3>
       <div class="article__con">
         <article>
-          <Image class="article__image" format='webp' src={articleImage1} alt="Bogreol med bøger"></Image>
+          <Image format={'webp'} src={articleImage1} alt="Bogreol med bøger"></Image>
           <div class="article__text__con">
             <h4>Hvad er bæredygtighed og omstilling?</h4>
             <p class="p--faded  article__p">I fællesskab kan vi finde de rigtige løsninger, der giver mening lokalt og derfor skaber ægte bæredygtighed.</p>
@@ -68,7 +78,7 @@ import articleImage3 from '../assets/studerende_1.png'
         </article>
         <article class="article--shadow">
           <div class="article__image__con">
-            <Image format='webp' width={379} height={380} src={articleImage2} alt="Papir med skrift"></Image>
+            <Image class="article__image" format={'webp'} width={379} height={380} src={articleImage2} alt="Papir med skrift"></Image>
           </div>
           <div class="article__text__con">
             <h4>Sådan driver du bæredygtig ledelse</h4>
@@ -77,7 +87,7 @@ import articleImage3 from '../assets/studerende_1.png'
           </div>
         </article>
         <article>
-          <Image format='webp' src={articleImage3} alt="Håndarbejdere"></Image>
+          <Image class="article__image" format={'webp'} src={articleImage3} alt="Håndarbejdere"></Image>
           <div class="article__text__con">
             <h4>Studerende udvikler bæredygtige løsninger</h4>
             <p class="p--faded  article__p">Hvordan genanvender vi mere byggeaffald fra renoveringsprojekter? Kan vi skabe et nyt marked for genbrug af materialer i byggebranchen?</p>
@@ -85,7 +95,27 @@ import articleImage3 from '../assets/studerende_1.png'
           </div>
         </article>
       </div>
-      <Button title={'Mere om os'}></Button>
+      <Button class='section__btn--more' title={'Mere om os'}></Button>
+    </section>
+    <section class="section__instagram">
+      <i class="fa-brands fa-instagram"></i>
+      <div class="instagram__title">
+        <h4>Bliv inspireret af</h4>
+        <h4 class="heading--faded">Billeder fra vores Instagram</h4>
+      </div>
+      <div class="gallery__con">
+        <!--- Astro formatere og optimere selv billeder -->
+        <Image src={instaImage1} alt="" width={238} height={238} format={'webp'} alt="Instagram Karmen foto"></Image>
+        <Image src={instaImage2} alt="" width={238} height={238} format={'webp'} alt="Instagram Karmen foto"></Image>
+        <Image src={instaImage3} alt="" width={238} height={238} format={'webp'} alt="Instagram Karmen foto"></Image>
+        <Image src={instaImage4} alt="" width={238} height={238} format={'webp'} alt="Instagram Karmen foto"></Image>
+        <Image src={instaImage5} alt="" width={238} height={238} format={'webp'} alt="Instagram Karmen foto"></Image>
+        <Image src={instaImage6} alt="" width={238} height={238} format={'webp'} alt="Instagram Karmen foto"></Image>
+        <Image src={instaImage7} alt="" width={238} height={238} format={'webp'} alt="Instagram Karmen foto"></Image>
+        <Image src={instaImage8} alt="" width={238} height={238} format={'webp'} alt="Instagram Karmen foto"></Image>
+        <Image src={instaImage9} alt="" width={238} height={238} format={'webp'} alt="Instagram Karmen foto"></Image>
+        <Image src={instaImage10} alt="" width={238} height={238} format={'webp'} alt="Instagram Karmen foto"></Image>
+      </div>
     </section>
   </div>
 </StartLayout>
@@ -96,7 +126,7 @@ import articleImage3 from '../assets/studerende_1.png'
     font-size: 18px;
   }
 
-  .p--faded, .h3--faded {
+  .p--faded, .heading--faded {
     opacity: 30%;
   }
 
@@ -114,7 +144,6 @@ import articleImage3 from '../assets/studerende_1.png'
   }
 
   .section__btn {
-    box-shadow: 0px 20px 40px rgba(13, 18, 39, 0.3);
     widows: 170px;
     height: 60px;
   }
@@ -220,7 +249,44 @@ import articleImage3 from '../assets/studerende_1.png'
   }
 
   .article__image {
-    display: none;
+    border-radius: 5px;
+  }
+
+  .section__btn--more {
+    margin-top: 6em;
+  }
+
+  .fa-instagram {
+    font-size: 70px;
+    color: var(--primary-bg-color-pink);
+  }
+
+  .section__instagram {
+    padding-top: 3em;
+    display: flex;
+    flex-direction: column;
+    gap: 4em;
+  }
+  
+  .instagram__title {
+    text-align: center;
+  }
+
+  .section__instagram, .heading--faded {
+    font-weight: 300;
+  }
+
+  .gallery__con {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    justify-items: center;
+  }
+
+  .p--italic{
+    color: white;
+    font-style: italic;
+    font-size: 36px;
   }
 
   h1 {
@@ -232,17 +298,12 @@ import articleImage3 from '../assets/studerende_1.png'
     font-size: 64px;
   }
 
-  .p--italic{
-    color: white;
-    font-style: italic;
-    font-size: 36px;
-  }
 
-  h2, h3 {
+  h2, h3, h4 {
     font-size: 48px
   }
 
-  h3 {
+  h3, h4 {
     margin: 0;
   }
 
