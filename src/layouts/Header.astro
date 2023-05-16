@@ -4,8 +4,8 @@ import logo from '../assets/karmen-logo-sort.png'
 import {Image, Picture} from '@astrojs/image/components'
 ---
 
-<header>
-  <Image src={logo} width={117} height={50} alt="Logo for Karmen webshop" />
+<header id="top">
+  <Image format={'webp'} src={logo} width={117} height={50} alt="Logo for Karmen webshop" />
   <nav>
     <ul>
       <li class="active__header"><a href="">Forside</a></li>
@@ -28,6 +28,8 @@ import {Image, Picture} from '@astrojs/image/components'
   }
 
   ul {
+    padding: 0;
+    margin: 0;
     display: flex;
     gap: 4em;
     font-weight: 500;

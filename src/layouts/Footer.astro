@@ -7,13 +7,6 @@ import Button from '../components/Button.astro';
 ---
 
 <footer>
-  <Image src={logo} alt="Karmen logo"></Image>
-  <ul>
-    <li class="active__footer"><a href="">Forside</a></li>
-    <li><a href="">Produkter</a></li>
-    <li><a href="">Mere info</a></li>
-    <li><a href=""><i class="fa-solid fa-cart-plus"></i>Kurv</a></li>
-  </ul>
   <div class="sub__con">
     <h5>Tilmeld dig vores nyhedsbrev</h5>
     <div class="sub__btn__con">
@@ -22,35 +15,46 @@ import Button from '../components/Button.astro';
       <Button class='sub__btn' title='Abonner'></Button>
     </div>
   </div>
+  <div class="footer__con">
+    <Image src={logo} alt="Karmen logo"></Image>
+    <ul>
+      <li class="active__footer"><a href="">Forside</a></li>
+      <li><a href="">Produkter</a></li>
+      <li><a href="">Mere info</a></li>
+      <li><a href=""><i class="fa-solid fa-cart-plus"></i>Kurv</a></li>
+    </ul>
+  </div>
 </footer>
 
 <style>
   footer {
     background-color: var(--primary-bg-color);
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    align-items: center;
-    justify-content: space-around;
     height: 389px;
     padding: 0 4em;
-    display: none;
+  }
+
+  .sub__con {
+    max-width: 770px;
+    margin: 0 auto;
+    position: relative;
+    bottom: 7.5em;
+  }
+
+  .footer__con {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    align-items: center;
   }
 
   ul {
     display: flex;
     color: var(--secondary-font-blue);
     font-weight: 500;
+    justify-self: center;
   }
 
   li {
-    padding: 2em;
-  }
-
-  .sub__con {
-    position: relative;
-    bottom: 65%;
-    right: 50%;
-    transform: translate(-50%);
+    padding: 1.5em 2em;
   }
 
   .sub__btn__con {
