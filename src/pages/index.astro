@@ -3,19 +3,128 @@ import '../styles/global.css'
 import StartLayout from '../layouts/StartLayout.astro'
 import {Image, Picture} from '@astrojs/image/components'
 import hero from '../assets/hero-big.webp'
+import Button from '../components/Button.astro';
+import staffeli from '../assets/staffeli.png'
+import plante from '../assets/plante_3.png'
+import articleImage1 from '../assets/historier_1.png'
+import articleImage2 from '../assets/historier_2.png'
+import articleImage3 from '../assets/studerende_1.png'
 ---
 
 <StartLayout>
   <section class="section__hero">
-    <Image class="hero__image" src={hero} alt="Karmen køkken"></Image>
+    <Image class="hero__image" format='webp' src={hero} alt="Karmen køkken"></Image>
     <div class="hero__title">
       <h1>Karmen</h1>
-      <p>- En grønnere udsigt</p>
+      <p class="p--italic">- En grønnere udsigt</p>
     </div>
   </section>
+  <div class="padding--120px">
+    <section class="section--grey">
+      <div class="section__con__title">
+        <h2>Bedste <span>tilbud</span></h2>
+        <Button class='section__btn' title={'Se alle produkter'}></Button>
+      </div>
+      <div class="section__con__products">
+        <div class="product product__staffeli">
+          <div class="product__image image--staffeli">
+            <Image format='webp' src={staffeli} width={108} height={134} alt="Mini staffeli"></Image>
+          </div>
+          <div class="product--title">
+            <p class="p--bold">Mini staffeli</p>
+            <p class="p--faded">Inkl. malerlærred</p>
+          </div>
+          <div>
+            <p class="p--bold">30 kr</p>
+            <p class="p--faded">Før: 95 kr</p>
+          </div>
+        </div>
+        <div class="product product__sukkulent">
+          <div class="product__image">
+            <Image format='webp' src={plante} width={108} height={134} alt="Sukkulent"></Image>
+          </div>
+          <div class="product--title">
+            <p class="p--bold">Sukkulent</p>
+            <p class="p--faded">Grøn plante</p>
+          </div>
+          <div>
+            <p class="p--bold">50 kr</p>
+            <p class="p--faded">Før: 150 kr</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section__history">
+        <h3>Oplev vores historier</h3>
+        <h3 class="h3--faded">missionen om bæredygtighed</h3>
+      <div class="article__con">
+        <article>
+          <Image class="article__image" format='webp' src={articleImage1} alt="Bogreol med bøger"></Image>
+          <div class="article__text__con">
+            <h4>Hvad er bæredygtighed og omstilling?</h4>
+            <p class="p--faded  article__p">I fællesskab kan vi finde de rigtige løsninger, der giver mening lokalt og derfor skaber ægte bæredygtighed.</p>
+            <a class="a--gridend" href="">Læs mere &#8594;</a>
+          </div>
+        </article>
+        <article class="article--shadow">
+          <div class="article__image__con">
+            <Image format='webp' width={379} height={380} src={articleImage2} alt="Papir med skrift"></Image>
+          </div>
+          <div class="article__text__con">
+            <h4>Sådan driver du bæredygtig ledelse</h4>
+            <p class="p--faded  article__p">Omstillingen til at blive bæredygtige virksomheder og organisationer er kompleks. Det er en ny måde at drive virksomhed på.</p>
+            <a href="">Læs mere &#8594;</a>
+          </div>
+        </article>
+        <article>
+          <Image format='webp' src={articleImage3} alt="Håndarbejdere"></Image>
+          <div class="article__text__con">
+            <h4>Studerende udvikler bæredygtige løsninger</h4>
+            <p class="p--faded  article__p">Hvordan genanvender vi mere byggeaffald fra renoveringsprojekter? Kan vi skabe et nyt marked for genbrug af materialer i byggebranchen?</p>
+            <a href="">Læs mere &#8594;</a>
+          </div>
+        </article>
+      </div>
+      <Button title={'Mere om os'}></Button>
+    </section>
+  </div>
 </StartLayout>
 
 <style>
+  .p--bold {
+    font-weight: 500;
+    font-size: 18px;
+  }
+
+  .p--faded, .h3--faded {
+    opacity: 30%;
+  }
+
+  .padding--120px {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-top: 150px;
+  }
+
+  .section__con__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 150px 135px 60px 135px;
+  }
+
+  .section__btn {
+    box-shadow: 0px 20px 40px rgba(13, 18, 39, 0.3);
+    widows: 170px;
+    height: 60px;
+  }
+
+  .section--grey {
+    background-color: var(--primary-bg-color);
+    padding-bottom: 10em;
+    margin-bottom: 18em;
+  }
+
   .section__hero {
     max-width: 1440px;
     margin: 0 auto;
@@ -31,7 +140,90 @@ import hero from '../assets/hero-big.webp'
     right: 20%;
   }
 
-  h1, p {
+  .section__con__products {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+  }
+
+  .product__sukkulent {
+    background-color: #fff;
+  }
+
+  .product__image {
+    background-color: var(--primary-bg-color-pink);
+    width: 281px;
+    height: 165px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 20px 40px rgba(13, 18, 39, 0.3);
+    border-radius: 5px;
+    position: relative;
+    right: 6.2em;
+  }
+
+  .image--staffeli {
+    box-shadow: 0px 10px 10px rgba(13, 18, 39, 0.2);
+  }
+
+  .product {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+    width: 1143px;
+    height: 185px;
+    margin: 0 auto;
+  }
+
+  .product--title {
+    width: 130px;
+  }
+
+  .article__con {
+    padding-top: 6em;
+    display: flex;
+    justify-content: center;
+    gap: 1.3em;
+  }
+
+  .section__history {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .article__p {
+    max-width: 317px;
+  }
+
+  .article__text__con {
+    padding-left: 2em;
+    display: grid;
+    align-content: center;
+    height: 185px;
+  }
+
+  .article__text__con a {
+    color: var(--secondary-bg-color);
+  }
+
+  .a--gridend {
+    padding-top: 1.3em;
+  }
+
+  .article--shadow {
+    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    height: 617px;
+  }
+
+  .article__image {
+    display: none;
+  }
+
+  h1 {
     color: white;
     text-align: right;
   }
@@ -40,8 +232,22 @@ import hero from '../assets/hero-big.webp'
     font-size: 64px;
   }
 
-  p {
+  .p--italic{
+    color: white;
     font-style: italic;
     font-size: 36px;
+  }
+
+  h2, h3 {
+    font-size: 48px
+  }
+
+  h3 {
+    margin: 0;
+  }
+
+  span {
+    color: #939FA4;
+    font-weight: 300;
   }
 </style>
