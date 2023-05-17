@@ -4,14 +4,31 @@ import logo from '../assets/karmen-logo-sort.png';
 import { Image, Picture } from '@astrojs/image/components';
 ---
 
+<script>
+  const listLink1 = document.querySelector('.li__1');
+  const listLink2 = document.querySelector('.li__2');
+  const listLink3 = document.querySelector('.li__3');
+  const listLink4 = document.querySelector('.li__4');
+
+  if (document.URL.includes('karmen/produkter')) {
+    listLink2.classList.add('active__header');
+  } else if (document.URL.includes('karmen/mere-info')) {
+    listLink3.classList.add('active__header');
+  } else if (document.URL.includes('karmen/kurv')) {
+    listLink4.classList.add('active__header');
+  } else {
+    listLink1.classList.add('active__header');
+  }
+</script>
+
 <header id="top">
   <Image format={'webp'} src={logo} width={117} height={50} alt="Logo for Karmen webshop" />
   <nav>
     <ul>
-      <li><a href="/karmen/">Forside</a></li>
-      <li><a href="/karmen/produkter/">Produkter</a></li>
-      <li><a href="">Mere info</a></li>
-      <li><a href=""><i class="fa-solid fa-cart-plus"></i>Kurv</a></li>
+      <li class="li__1"><a href="/karmen/">Forside</a></li>
+      <li class="li__2"><a href="/karmen/produkter/">Produkter</a></li>
+      <li class="li__3"><a href="/karmen/mere-info/">Mere info</a></li>
+      <li class="li__4"><a href="/karmen/kurv/"><i class="fa-solid fa-cart-plus"></i>Kurv</a></li>
     </ul>
   </nav>
 </header>

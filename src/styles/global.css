@@ -28,13 +28,6 @@ ul {
   font-size: 18px;
 }
 
-.active__footer {
-  background-color: var(--secondary-bg-color);
-  box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-  color: white;
-}
-
 /** Global padding for alle sider med wrapper **/
 .padding--120px {
   max-width: 1440px;

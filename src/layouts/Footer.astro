@@ -6,6 +6,23 @@ import button from '../components/Button.astro';
 import Button from '../components/Button.astro';
 ---
 
+<script>
+  const listLink1 = document.querySelector('.footer__li__1');
+  const listLink2 = document.querySelector('.footer__li__2');
+  const listLink3 = document.querySelector('.footer__li__3');
+  const listLink4 = document.querySelector('.footer__li__4');
+
+  if (document.URL.includes('karmen/produkter')) {
+    listLink2.classList.add('active__footer');
+  } else if (document.URL.includes('karmen/mere-info')) {
+    listLink3.classList.add('active__footer');
+  } else if (document.URL.includes('karmen/kurv')) {
+    listLink4.classList.add('active__footer');
+  } else {
+    listLink1.classList.add('active__footer');
+  }
+</script>
+
 <footer>
   <div class="sub__con">
     <h5>Tilmeld dig vores nyhedsbrev</h5>
@@ -18,10 +35,12 @@ import Button from '../components/Button.astro';
   <div class="footer__con">
     <Image src={logo} alt="Karmen logo" />
     <ul>
-      <li class="active__footer"><a href="/karmen/">Forside</a></li>
-      <li><a href="/karmen/produkter/">Produkter</a></li>
-      <li><a href="">Mere info</a></li>
-      <li><a href=""><i class="fa-solid fa-cart-plus"></i>Kurv</a></li>
+      <li class="footer__li__1"><a href="/karmen/">Forside</a></li>
+      <li class="footer__li__2"><a href="/karmen/produkter/">Produkter</a></li>
+      <li class="footer__li__3"><a href="/karmen/mere-info/">Mere info</a></li>
+      <li class="footer__li__4">
+        <a href="/karmen/kurv/"><i class="fa-solid fa-cart-plus"></i>Kurv</a>
+      </li>
     </ul>
   </div>
 </footer>
@@ -94,5 +113,12 @@ import Button from '../components/Button.astro';
   h5 {
     text-align: center;
     font-size: 24px;
+  }
+
+  .active__footer {
+    background-color: var(--secondary-bg-color);
+    box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    color: white;
   }
 </style>
