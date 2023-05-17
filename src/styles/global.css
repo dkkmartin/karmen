@@ -34,3 +34,10 @@ ul {
   border-radius: 5px;
   color: white;
 }
+
+/** Global padding for alle sider med wrapper **/
+.padding--120px {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-top: 150px;
+}

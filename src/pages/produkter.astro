@@ -1,0 +1,157 @@
+---
+import StartLayout from '../layouts/StartLayout.astro';
+import Gallery from '../layouts/Gallery.astro';
+import TilTopKnap from '../components/TilTopKnap.astro';
+import { Image, Picture } from '@astrojs/image/components';
+import plante from '../assets/plante_3.png';
+import staffeli from '../assets/staffeli.png';
+import kurv from '../assets/kurv.png';
+import ugle from '../assets/ugle.png';
+import krokodille from '../assets/krokodille.png';
+import Button from '../components/Button.astro';
+---
+
+<StartLayout>
+  <div class="padding--120px">
+    <section class="section__products">
+      <h1>Alle <span>produkter</span></h1>
+      <div class="products__con">
+        <div class="product__item__con">
+          <div class="product__image__con">
+            <Image
+              src={staffeli}
+              alt="Karmen mini staffeli"
+              format={'webp'}
+              width={201}
+              height={250}
+            />
+          </div>
+          <p class="--bold">Mini staffeli</p>
+          <div class="product__price__con">
+            <p class="--faded">95 kr</p>
+            <p>30 kr</p>
+          </div>
+          <Button class="read__btn" title={'Læs mere'} />
+        </div>
+        <div class="product__item__con">
+          <div class="product__image__con">
+            <Image
+              src={plante}
+              alt="Karmen sukkulent plante"
+              format={'webp'}
+              width={188}
+              height={250}
+            />
+          </div>
+          <p class="--bold">Sukkulent</p>
+          <div class="product__price__con">
+            <p class="--faded">150 kr</p>
+            <p>50 kr</p>
+          </div>
+          <Button class="read__btn" title={'Læs mere'} />
+        </div>
+        <div class="product__item__con">
+          <div class="product__image__con">
+            <Image src={kurv} alt="Karmen træ kurv" format={'webp'} width={250} height={216} />
+          </div>
+          <p class="--bold">Kurv</p>
+          <p>30 kr</p>
+          <Button class="read__btn" title={'Læs mere'} />
+        </div>
+        <div class="product__item__con">
+          <div class="product__image__con">
+            <Image src={ugle} alt="Karmen træ ugle" format={'webp'} width={128} height={250} />
+          </div>
+          <p class="--bold">Ugle</p>
+          <p>50 kr</p>
+          <Button class="read__btn" title={'Læs mere'} />
+        </div>
+        <div class="product__item__con">
+          <div class="product__image__con">
+            <Image
+              src={krokodille}
+              alt="Karmen træ krokodille"
+              format={'webp'}
+              width={250}
+              height={58}
+            />
+          </div>
+          <p class="--bold">krokodille</p>
+          <p>65 kr</p>
+          <Button class="read__btn" title={'Læs mere'} />
+        </div>
+      </div>
+    </section>
+    <TilTopKnap />
+    <Gallery />
+  </div>
+</StartLayout>
+
+<style>
+  .padding--120px {
+    padding-top: 0;
+  }
+
+  .section__products {
+    background-color: var(--primary-bg-color);
+    padding-bottom: 243px;
+  }
+
+  .products__con {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 2em;
+    row-gap: 6.2em;
+    padding: 0 8.5em;
+  }
+
+  .product__item__con {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .product__image__con {
+    background-color: var(--primary-bg-color-pink);
+    height: 370px;
+    width: 370px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .product__price__con {
+    display: flex;
+    gap: 0.5em;
+  }
+
+  .--bold {
+    font-weight: 600;
+    font-size: 18px;
+    padding-top: 1em;
+  }
+
+  .--faded {
+    text-decoration: line-through;
+    opacity: 30%;
+  }
+
+  .read__btn {
+    margin-top: 1em;
+  }
+
+  h1 {
+    font-size: 48px;
+    padding: 3.1em 0 1.8em 2.8em;
+    margin: 0;
+  }
+
+  span {
+    font-weight: 300;
+  }
+
+  p {
+    margin: 0.3em 0;
+  }
+</style>

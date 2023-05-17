@@ -1,8 +1,8 @@
 ---
-import '../styles/global.css'
-import {Image, Picture} from '@astrojs/image/components'
-import logo from '../assets/karmen-logo.svg'
-import button from '../components/Button.astro'
+import '../styles/global.css';
+import { Image, Picture } from '@astrojs/image/components';
+import logo from '../assets/karmen-logo.svg';
+import button from '../components/Button.astro';
 import Button from '../components/Button.astro';
 ---
 
@@ -11,15 +11,15 @@ import Button from '../components/Button.astro';
     <h5>Tilmeld dig vores nyhedsbrev</h5>
     <div class="sub__btn__con">
       <i class="fa-solid fa-envelope" style="color: #92d5f6;"></i>
-      <input type="email" placeholder="Din Email">
-      <Button class='sub__btn' title='Abonner'></Button>
+      <input type="email" placeholder="Din Email" />
+      <Button class="sub__btn" title="Abonner" />
     </div>
   </div>
   <div class="footer__con">
-    <Image src={logo} alt="Karmen logo"></Image>
+    <Image src={logo} alt="Karmen logo" />
     <ul>
-      <li class="active__footer"><a href="">Forside</a></li>
-      <li><a href="">Produkter</a></li>
+      <li class="active__footer"><a href="/karmen/">Forside</a></li>
+      <li><a href="/karmen/produkter/">Produkter</a></li>
       <li><a href="">Mere info</a></li>
       <li><a href=""><i class="fa-solid fa-cart-plus"></i>Kurv</a></li>
     </ul>

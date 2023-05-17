@@ -1,15 +1,15 @@
 ---
-import '../styles/global.css'
-import logo from '../assets/karmen-logo-sort.png'
-import {Image, Picture} from '@astrojs/image/components'
+import '../styles/global.css';
+import logo from '../assets/karmen-logo-sort.png';
+import { Image, Picture } from '@astrojs/image/components';
 ---
 
 <header id="top">
   <Image format={'webp'} src={logo} width={117} height={50} alt="Logo for Karmen webshop" />
   <nav>
     <ul>
-      <li class="active__header"><a href="">Forside</a></li>
-      <li><a href="">Produkter</a></li>
+      <li><a href="/karmen/">Forside</a></li>
+      <li><a href="/karmen/produkter/">Produkter</a></li>
       <li><a href="">Mere info</a></li>
       <li><a href=""><i class="fa-solid fa-cart-plus"></i>Kurv</a></li>
     </ul>
@@ -52,7 +52,7 @@ import {Image, Picture} from '@astrojs/image/components'
     border-bottom: 3px solid transparent;
   }
 
-  li:hover{
+  li:hover {
     border-bottom: 3px solid var(--secondary-bg-color);
   }
 
