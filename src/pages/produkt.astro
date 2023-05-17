@@ -1,0 +1,114 @@
+---
+import StartLayout from '../layouts/StartLayout.astro';
+import { Image, Picture } from '@astrojs/image/components';
+import plante1 from '../assets/plante_1.png';
+import plante2 from '../assets/plante_2.png';
+import plante3 from '../assets/plante_3.png';
+import fscLogo from '../assets/forest_stewardship_council.png';
+import Button from '../components/Button.astro';
+---
+
+<StartLayout>
+  <div class="padding--120px">
+    <section class="section__product">
+      <div class="slider__con">
+        <i class="fa-solid fa-arrow-left"></i>
+        <div class="slide slide__1">
+          <Image
+            src={plante1}
+            format={'webp'}
+            alt="Karmen sukkulent plante"
+            width={350}
+            height={350}
+          />
+        </div>
+        <div class="slide slide__2">
+          <Image
+            src={plante2}
+            format={'webp'}
+            alt="Karmen sukkulent plante"
+            width={350}
+            height={350}
+          />
+        </div>
+        <div class="slide slide__3">
+          <Image
+            src={plante3}
+            format={'webp'}
+            alt="Karmen sukkulent plante"
+            width={350}
+            height={350}
+          />
+        </div>
+        <i class="fa-solid fa-arrow-right"></i>
+      </div>
+      <article>
+        <div class="article__text__con">
+          <h1>Sukkulent</h1>
+          <p>
+            Det er fantastisk med grønne planter, der både er yndige og nemme at holde - og det er
+            lige præcis tilfældet med sukkulenter. Den hårdføre plante kommer i tusindvis af
+            forskellige sorter, hvoraf de mest almindelige slags, som rosetblomst, stenurt,
+            paradistræ, husløg og diverse kaktus, fortsat dukker op i flere og flere vindueskarme
+            herhjemme. Sukkulenten er nemlig ideel som stueplante, fordi den stortrives i den tørre,
+            varme luft i vores bolig.
+          </p>
+          <Image src={fscLogo} format={'webp'} width={70} height={84} />
+        </div>
+        <Button title={'Læg i kurven'} />
+      </article>
+    </section>
+    <section class="section__fairtrade"></section>
+  </div>
+</StartLayout>
+
+<style>
+  .slide__1,
+  .slide__3 {
+    display: none;
+  }
+
+  .fa-solid {
+    font-size: 2em;
+    color: var(--secondary-font-blue);
+    cursor: pointer;
+  }
+
+  .section__product {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    padding-bottom: 10em;
+  }
+
+  article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    height: 565px;
+    width: 570px;
+    padding: 4.3em;
+    background: #f5f7f9;
+    box-shadow: 0px 20px 40px rgba(13, 18, 39, 0.3);
+    border-radius: 30px;
+  }
+
+  .slider__con {
+    background-color: var(--primary-bg-color-pink);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 565px;
+    width: 570px;
+  }
+
+  .article__text__con {
+    line-height: 19.2px;
+  }
+
+  h1 {
+    font-size: 48px;
+    font-weight: 400;
+  }
+</style>
