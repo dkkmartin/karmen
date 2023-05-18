@@ -154,4 +154,10 @@ import Button from '../components/Button.astro';
   p {
     margin: 0.3em 0;
   }
+
+  @media only screen and (max-width: 1440px) {
+    .products__con {
+      grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
+    }
+  }
 </style>

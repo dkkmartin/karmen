@@ -8,39 +8,58 @@ import fscLogo from '../assets/forest_stewardship_council.png';
 import Button from '../components/Button.astro';
 ---
 
+<script>
+  const sliders = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.dot');
+  const arrowLeft = document.querySelector('.fa-arrow-left');
+  const arrowRight = document.querySelector('.fa-arrow-right');
+  let index = 1;
+
+  arrowLeft.addEventListener('click', () => {});
+
+  arrowRight.addEventListener('click', () => {});
+</script>
+
 <StartLayout>
   <div class="padding--120px">
     <section class="section__product">
       <div class="slider__con">
-        <i class="fa-solid fa-arrow-left"></i>
-        <div class="slide slide__1">
-          <Image
-            src={plante1}
-            format={'webp'}
-            alt="Karmen sukkulent plante"
-            width={350}
-            height={350}
-          />
+        <div class="image__arrows__con">
+          <i class="fa-solid fa-arrow-left"></i>
+          <div class="slide slide__1">
+            <Image
+              src={plante1}
+              format={'webp'}
+              alt="Karmen sukkulent plante"
+              width={350}
+              height={350}
+            />
+          </div>
+          <div class="slide slide__2">
+            <Image
+              src={plante2}
+              format={'webp'}
+              alt="Karmen sukkulent plante"
+              width={350}
+              height={350}
+            />
+          </div>
+          <div class="slide slide__3">
+            <Image
+              src={plante3}
+              format={'webp'}
+              alt="Karmen sukkulent plante"
+              width={263.2}
+              height={350}
+            />
+          </div>
+          <i class="fa-solid fa-arrow-right"></i>
         </div>
-        <div class="slide slide__2">
-          <Image
-            src={plante2}
-            format={'webp'}
-            alt="Karmen sukkulent plante"
-            width={350}
-            height={350}
-          />
+        <div class="dots">
+          <div class="dot"></div>
+          <div class="dot dot--active"></div>
+          <div class="dot"></div>
         </div>
-        <div class="slide slide__3">
-          <Image
-            src={plante3}
-            format={'webp'}
-            alt="Karmen sukkulent plante"
-            width={350}
-            height={350}
-          />
-        </div>
-        <i class="fa-solid fa-arrow-right"></i>
       </div>
       <article>
         <div class="article__text__con">
@@ -53,7 +72,7 @@ import Button from '../components/Button.astro';
             herhjemme. Sukkulenten er nemlig ideel som stueplante, fordi den stortrives i den tørre,
             varme luft i vores bolig.
           </p>
-          <Image src={fscLogo} format={'webp'} width={70} height={84} />
+          <Image src={fscLogo} format={'webp'} width={70} height={84} alt="FSC Logo" />
         </div>
         <Button title={'Læg i kurven'} />
       </article>
@@ -97,9 +116,9 @@ import Button from '../components/Button.astro';
   .slider__con {
     background-color: var(--primary-bg-color-pink);
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    height: 565px;
+    justify-content: center;
     width: 570px;
   }
 
@@ -107,8 +126,39 @@ import Button from '../components/Button.astro';
     line-height: 19.2px;
   }
 
+  .image__arrows__con {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-bottom: 1.7em;
+  }
+
+  .dots {
+    display: flex;
+    gap: 1.5em;
+    margin-bottom: -1.7em;
+  }
+
+  .dot {
+    height: 15px;
+    width: 15px;
+    border: 1px solid var(--secondary-font-blue);
+    border-radius: 50px;
+  }
+
+  .dot--active {
+    background-color: var(--secondary-font-blue);
+  }
+
   h1 {
     font-size: 48px;
     font-weight: 400;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
   }
 </style>

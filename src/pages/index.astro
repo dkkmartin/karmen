@@ -30,7 +30,7 @@ import Gallery from '../layouts/Gallery.astro';
       </div>
       <div class="section__con__products">
         <div class="product product__staffeli">
-          <div class="product__image image--staffeli">
+          <div class="product__image__con image--staffeli">
             <Image format={'webp'} src={staffeli} width={108} height={134} alt="Mini staffeli"></Image>
           </div>
           <div class="product--title">
@@ -43,7 +43,7 @@ import Gallery from '../layouts/Gallery.astro';
           </div>
         </div>
         <div class="product product__sukkulent">
-          <div class="product__image">
+          <div class="product__image__con">
             <Image format={'webp'} src={plante} width={108} height={134} alt="Sukkulent"></Image>
           </div>
           <div class="product--title">
@@ -62,7 +62,7 @@ import Gallery from '../layouts/Gallery.astro';
         <h3 class="heading--faded">missionen om bæredygtighed</h3>
       <div class="article__con">
         <article>
-          <Image format={'webp'} src={articleImage1} alt="Bogreol med bøger"></Image>
+          <Image class="article__image" format={'webp'} src={articleImage1} alt="Bogreol med bøger"></Image>
           <div class="article__text__con">
             <h4>Hvad er bæredygtighed og omstilling?</h4>
             <p class="p--faded  article__p">I fællesskab kan vi finde de rigtige løsninger, der giver mening lokalt og derfor skaber ægte bæredygtighed.</p>
@@ -133,6 +133,11 @@ import Gallery from '../layouts/Gallery.astro';
     grid-column: 1 / 1;
     grid-row: 1 / 1;
   }
+
+  .hero__image {
+    width: 100%;
+    height: auto;
+  }
   
   .hero__title {
     align-self: center;
@@ -154,7 +159,7 @@ import Gallery from '../layouts/Gallery.astro';
     background-color: #fff;
   }
 
-  .product__image {
+  .product__image__con {
     background-color: var(--primary-bg-color-pink);
     width: 281px;
     height: 165px;
@@ -182,7 +187,7 @@ import Gallery from '../layouts/Gallery.astro';
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
     align-items: center;
-    width: 1143px;
+    width: 80%;
     height: 185px;
     margin: 0 auto;
   }
@@ -202,8 +207,8 @@ import Gallery from '../layouts/Gallery.astro';
     padding: 2em 0 0 2em;
     display: grid;
     align-content: center;
-    height: 185px;
-    width: 317px;
+    max-width: 317px;
+    max-height: 185px;
   }
 
   .article__con h4 {
@@ -236,6 +241,8 @@ import Gallery from '../layouts/Gallery.astro';
 
   .article__image {
     border-radius: 5px;
+    width: 100%;
+    height: auto;
   }
 
   .section__btn--more {
