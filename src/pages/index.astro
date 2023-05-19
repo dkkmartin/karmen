@@ -13,7 +13,11 @@ import TilTopKnap from '../components/TilTopKnap.astro';
 import Gallery from '../layouts/Gallery.astro';
 ---
 
-<StartLayout>
+<StartLayout
+  description={'Karmen - Opdag vores webshop med miljøvenlige produkter og FSC-verificerede sukkulenter. Vi tilbyder et bredt udvalg af bæredygtige løsninger til dit hjem og livsstil. Find genanvendelige produkter, bæredygtige møbler og meget mere. Forkæl dig selv og vores planet med vores nøje udvalgte sortiment. Køb nu!'}
+  title={'Karmen - Din Webshop for Miljøvenlige Produkter'}
+>
+  <TilTopKnap />
   <section class="section__hero">
     <Image class="hero__image" format={'webp'} src={hero} alt="Karmen køkken" />
     <div class="hero__title">
@@ -22,14 +26,13 @@ import Gallery from '../layouts/Gallery.astro';
     </div>
   </section>
   <div class="padding--120px">
-    <TilTopKnap />
     <section class="section--grey">
       <div class="section__con__title">
         <h2>Bedste <span>tilbud</span></h2>
         <Button class="section__btn" title={'Se alle produkter'} />
       </div>
       <div class="section__con__products">
-        <div class="product product__staffeli">
+        <div class="product">
           <div class="product__image__con image--staffeli">
             <Image format={'webp'} src={staffeli} width={108} height={134} alt="Mini staffeli" />
           </div>

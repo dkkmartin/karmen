@@ -1,7 +1,123 @@
 ---
+import { Image, Picture } from '@astrojs/image/components';
+import Button from '../components/Button.astro';
 import StartLayout from '../layouts/StartLayout.astro';
+import plante from '../assets/plante_3.png';
+import staffeli from '../assets/staffeli.png';
+import kurv from '../assets/kurv.png';
+import ugle from '../assets/ugle.png';
+import krokodille from '../assets/krokodille.png';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 ---
 
-<StartLayout>
-  <h1>hello</h1>
+<StartLayout
+  title={'Sikker Betaling - Karmen Webshop for Miljøvenlige Produkter'}
+  description={'Foretag sikre og problemfri betalinger på Karmen-webshoppen for miljøvenlige produkter og FSC-verificerede sukkulenter. Vores betalingsside tilbyder en pålidelig og beskyttet betalingsproces, der sikrer dine personlige oplysninger. Vælg mellem forskellige betalingsmetoder og gennemfør din transaktion med lethed. Køb dine foretrukne bæredygtige produkter med tillid og ro i sindet. Betal nu og vær en del af den grønne bevægelse!'}
+>
+  <div class="padding--120px">
+    <section>
+      <Breadcrumbs />
+    </section>
+    <section class="section--grey">
+      <h1>Indkøbskurv</h1>
+      <div class="section__con__products">
+        <div class="product">
+          <div class="product__image__con image--staffeli">
+            <Image format={'webp'} src={staffeli} width={108} height={134} alt="Mini staffeli" />
+          </div>
+          <div class="product--title">
+            <p class="p--bold">Mini staffeli</p>
+            <p class="p--faded">Inkl. malerlærred</p>
+          </div>
+          <div>
+            <p class="p--bold">30 kr</p>
+            <p class="p--faded">Før: 95 kr</p>
+          </div>
+        </div>
+        <div class="product product__sukkulent">
+          <div class="product__image__con">
+            <Image format={'webp'} src={plante} width={108} height={134} alt="Sukkulent" />
+          </div>
+          <div class="product--title">
+            <p class="p--bold">Sukkulent</p>
+            <p class="p--faded">Grøn plante</p>
+          </div>
+          <div>
+            <p class="p--bold">50 kr</p>
+            <p class="p--faded">Før: 150 kr</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </StartLayout>
+
+<style>
+  .section__con__products {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+  }
+
+  .section--grey {
+    background-color: var(--primary-bg-color);
+    padding-top: 5em;
+    padding-bottom: 10em;
+    margin-bottom: 18em;
+  }
+
+  .product {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+    width: 80%;
+    height: 185px;
+    margin: 0 auto;
+  }
+
+  .product__image__con {
+    background-color: var(--primary-bg-color-pink);
+    width: 281px;
+    height: 165px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    position: relative;
+    right: 6.2em;
+    transition: 0.3s;
+  }
+
+  .product__image__con:hover {
+    transform: scale(1.35);
+    box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .product--title {
+    width: 130px;
+  }
+
+  .p--bold {
+    font-weight: 500;
+    font-size: 18px;
+  }
+
+  .p--faded {
+    opacity: 30%;
+  }
+
+  .product__sukkulent {
+    background-color: #fff;
+  }
+
+  .padding--120px {
+    padding-top: 0;
+  }
+
+  h1 {
+    font-size: 48px;
+    font-weight: 100;
+    padding-left: 2em;
+  }
+</style>

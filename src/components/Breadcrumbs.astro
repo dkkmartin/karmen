@@ -1,0 +1,107 @@
+<section class="breadcrumbs">
+  <a href="#" class="pointer" id="first">
+    <div>
+      <i class="fa-solid fa-house" style="color: #8093A7;"></i>
+      <span>FORSIDE</span>
+    </div></a
+  >
+  <a href="#" class="pointer">
+    <div>
+      <i class="fa-solid fa-bag-shopping" style="color: #8093A7;"></i>
+      <span>PRODUKTER</span>
+    </div></a
+  >
+  <a href="#" class="pointer current">
+    <div>
+      <i class="fa-solid fa-cart-plus" style="color: #8093A7;"></i>
+      <span>KURV</span>
+    </div></a
+  >
+  <a href="#" class="pointer" id="last">
+    <div>
+      <i class="fa-solid fa-credit-card" style="color: #8093A7;"></i>
+      <span>BETALING</span>
+    </div></a
+  >
+</section>
+
+<style>
+  .fa-cart-plus {
+    padding: 0;
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+  }
+
+  a {
+    color: #8093a7;
+    font-family: verdana;
+    font-size: 1.2em;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  section {
+    width: 80%;
+    margin: 4em auto;
+    display: grid;
+    grid: 1fr / repeat(4, 1fr);
+    gap: 1%;
+  }
+  .pointer {
+    height: 80px;
+    position: relative;
+    background: #f3f5fa;
+    display: grid;
+    place-items: center;
+  }
+  .pointer:before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 30px solid white;
+    border-top: 40px solid transparent;
+    border-bottom: 40px solid transparent;
+  }
+  #first:before {
+    border-left: none;
+  }
+  #first {
+    border-bottom-left-radius: 16px;
+    border-top-left-radius: 16px;
+  }
+
+  .pointer:after {
+    content: '';
+    position: absolute;
+    right: -29px;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 30px solid #f3f5fa;
+    border-top: 40px solid transparent;
+    border-bottom: 40px solid transparent;
+    z-index: 1;
+  }
+  #last:after {
+    border-left: none;
+  }
+  #last {
+    border-bottom-right-radius: 16px;
+    border-top-right-radius: 16px;
+  }
+  .current,
+  .pointer:hover {
+    background: #f9c4d2;
+    color: #fff;
+  }
+  .current:after,
+  .pointer:hover:after {
+    border-left: 30px solid #f9c4d2;
+  }
+</style>

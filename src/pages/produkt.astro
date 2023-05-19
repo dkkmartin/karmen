@@ -6,6 +6,7 @@ import plante2 from '../assets/plante_2.png';
 import plante3 from '../assets/plante_3.png';
 import fscLogo from '../assets/forest_stewardship_council.png';
 import Button from '../components/Button.astro';
+import banner from '../assets/banner.svg';
 ---
 
 <script>
@@ -24,9 +25,8 @@ import Button from '../components/Button.astro';
     index--;
     // Hvis index er mindre end 0
     if (index < 0) {
-      // Index giver længden af variable sliders - 1
-      // Minus 1 er fordi vi vil have index nummeret og ikke længden da længden af nodelisten er 3
-      index = sliders.length - 1;
+      // Index giver 2
+      index = 2;
     }
     // Tilføjer class active på sliders[index]
     sliders[index].classList.add('slide--active');
@@ -41,8 +41,8 @@ import Button from '../components/Button.astro';
     dots[index].classList.remove('dot--active');
     // Index increment
     index++;
-    // Hvis index er større eller ligmed længden af sliders
-    if (index >= sliders.length) {
+    // Hvis index er større eller ligmed 3
+    if (index >= 3) {
       // Index giver 0
       index = 0;
     }
@@ -70,7 +70,12 @@ import Button from '../components/Button.astro';
   });
 </script>
 
-<StartLayout>
+<script></script>
+
+<StartLayout
+  title={'Sukkulentplante - Bæredygtighed og Skønhed fra Karmen Webshop'}
+  description={'Opdag vores FSC-verificerede sukkulentplante, der kombinerer skønhed med bæredygtighed. Vores sukkulent er dyrket med omtanke for skovens økosystemer og er et ideelt valg til at tilføje grønt liv til dit hjem eller kontor. Med dens unikke egenskaber og FSC-verificering kan du være sikker på at vælge en plante, der passer til dine værdier og miljøansvar. Køb nu og nyd naturens skønhed på en bæredygtig måde!'}
+>
   <div class="padding--120px">
     <section class="section__product">
       <div class="slider__con">
@@ -127,7 +132,55 @@ import Button from '../components/Button.astro';
         <Button title={'Læg i kurven'} />
       </article>
     </section>
-    <section class="section__fairtrade"></section>
+    <section class="section__fairtrade">
+      <h2>Info på vores <span>Fairtrade blomster</span></h2>
+      <div class="fairtrade__con">
+        <article>
+          <h3>Ydelser til arbejdere og deres familier</h3>
+          <p>Uddannelse til arbejdere og deres familier</p>
+          <div class="progress__bar">
+            <div class="progress--27">27%</div>
+          </div>
+          <p>Andre ydelser for arbejde og deres familier</p>
+          <div class="progress__bar">
+            <div class="progress--20">20%</div>
+          </div>
+          <p>Finans- og låneydelser til arbejdere og deres familier</p>
+          <div class="progress__bar">
+            <div class="progress--17">17%</div>
+          </div>
+          <p>Sundhedsydelser til arbejdere og deres familier</p>
+          <div class="progress__bar">
+            <div class="progress--14">14%</div>
+          </div>
+          <p>Investering i husning til arbejdere</p>
+          <div class="progress__bar">
+            <div class="progress--3">3%</div>
+          </div>
+          <h3>Fællesskabsydelser</h3>
+          <p>Uddannelsesydelser til fællesskaber</p>
+          <div class="progress__bar">
+            <div class="progress--4">4%</div>
+          </div>
+          <h3>Træning af arbejdere</h3>
+          <p>Træning af arbejdere</p>
+          <div class="progress__bar">
+            <div class="progress--5">5%</div>
+          </div>
+          <p>Komité og andre komitérelaterede omkostninger</p>
+          <div class="progress__bar">
+            <div class="progress--4">4%</div>
+          </div>
+          <p>Træning af komitémedlemmer</p>
+          <div class="progress__bar">
+            <div class="progress--2">2%</div>
+          </div>
+        </article>
+        <aside>
+          <Image src={banner} format={'svg'} alt="Ad from OnePlus 7" width={160} height={600} />
+        </aside>
+      </div>
+    </section>
   </div>
 </StartLayout>
 
@@ -155,7 +208,7 @@ import Button from '../components/Button.astro';
     padding-bottom: 10em;
   }
 
-  article {
+  .section__product article {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -209,9 +262,91 @@ import Button from '../components/Button.astro';
     background-color: var(--secondary-font-blue);
   }
 
+  .section__fairtrade {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .fairtrade__con {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .section__fairtrade article {
+    max-width: 600px;
+    flex: 1;
+    padding-bottom: 15em;
+  }
+
+  .section__fairtrade p {
+    font-size: 20px;
+    opacity: 30%;
+  }
+
+  .progress__bar {
+    height: 20px;
+    background-color: var(--primary-bg-color);
+  }
+
+  .progress__bar div {
+    color: #fff;
+    padding-left: 0.5em;
+    height: 100%;
+    background-color: var(--secondary-bg-color);
+  }
+
+  .progress--27 {
+    width: 27%;
+  }
+
+  .progress--20 {
+    width: 20%;
+  }
+
+  .progress--17 {
+    width: 17%;
+  }
+
+  .progress--14 {
+    width: 14%;
+  }
+
+  .progress--3 {
+    width: 3%;
+  }
+
+  .progress--4 {
+    width: 4%;
+  }
+
+  .progress--5 {
+    width: 5%;
+  }
+
+  .progress--2 {
+    width: 2%;
+  }
+
   h1 {
     font-size: 48px;
     font-weight: 400;
+  }
+
+  h2 {
+    font-size: 48px;
+  }
+
+  h3 {
+    font-size: 24px;
+    font-weight: 400;
+    padding-top: 1em;
+  }
+
+  span {
+    font-weight: 100;
   }
 
   img {
