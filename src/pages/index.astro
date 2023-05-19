@@ -1,37 +1,37 @@
 ---
-import '../styles/global.css'
-import StartLayout from '../layouts/StartLayout.astro'
-import {Image, Picture} from '@astrojs/image/components'
-import hero from '../assets/hero-big.webp'
+import '../styles/global.css';
+import StartLayout from '../layouts/StartLayout.astro';
+import { Image, Picture } from '@astrojs/image/components';
+import hero from '../assets/hero-big.webp';
 import Button from '../components/Button.astro';
-import staffeli from '../assets/staffeli.png'
-import plante from '../assets/plante_3.png'
-import articleImage1 from '../assets/historier_1.png'
-import articleImage2 from '../assets/historier_2.png'
-import articleImage3 from '../assets/studerende_1.png'
+import staffeli from '../assets/staffeli.png';
+import plante from '../assets/plante_3.png';
+import articleImage1 from '../assets/historier_1.png';
+import articleImage2 from '../assets/historier_2.png';
+import articleImage3 from '../assets/studerende_1.png';
 import TilTopKnap from '../components/TilTopKnap.astro';
 import Gallery from '../layouts/Gallery.astro';
 ---
 
 <StartLayout>
   <section class="section__hero">
-    <Image class="hero__image" format={'webp'} src={hero} alt="Karmen køkken"></Image>
+    <Image class="hero__image" format={'webp'} src={hero} alt="Karmen køkken" />
     <div class="hero__title">
       <h1>Karmen</h1>
       <p class="p--italic">- En grønnere udsigt</p>
     </div>
   </section>
   <div class="padding--120px">
-    <TilTopKnap></TilTopKnap>
+    <TilTopKnap />
     <section class="section--grey">
       <div class="section__con__title">
         <h2>Bedste <span>tilbud</span></h2>
-        <Button class='section__btn' title={'Se alle produkter'}></Button>
+        <Button class="section__btn" title={'Se alle produkter'} />
       </div>
       <div class="section__con__products">
         <div class="product product__staffeli">
           <div class="product__image__con image--staffeli">
-            <Image format={'webp'} src={staffeli} width={108} height={134} alt="Mini staffeli"></Image>
+            <Image format={'webp'} src={staffeli} width={108} height={134} alt="Mini staffeli" />
           </div>
           <div class="product--title">
             <p class="p--bold">Mini staffeli</p>
@@ -44,7 +44,7 @@ import Gallery from '../layouts/Gallery.astro';
         </div>
         <div class="product product__sukkulent">
           <div class="product__image__con">
-            <Image format={'webp'} src={plante} width={108} height={134} alt="Sukkulent"></Image>
+            <Image format={'webp'} src={plante} width={108} height={134} alt="Sukkulent" />
           </div>
           <div class="product--title">
             <p class="p--bold">Sukkulent</p>
@@ -58,39 +58,60 @@ import Gallery from '../layouts/Gallery.astro';
       </div>
     </section>
     <section class="section__history">
-        <h3>Oplev vores historier</h3>
-        <h3 class="heading--faded">missionen om bæredygtighed</h3>
+      <h3>Oplev vores historier</h3>
+      <h3 class="heading--faded">missionen om bæredygtighed</h3>
       <div class="article__con">
         <article>
-          <Image class="article__image" format={'webp'} src={articleImage1} alt="Bogreol med bøger"></Image>
+          <Image
+            class="article__image"
+            format={'webp'}
+            src={articleImage1}
+            alt="Bogreol med bøger"
+          />
           <div class="article__text__con">
             <h4>Hvad er bæredygtighed og omstilling?</h4>
-            <p class="p--faded  article__p">I fællesskab kan vi finde de rigtige løsninger, der giver mening lokalt og derfor skaber ægte bæredygtighed.</p>
+            <p class="p--faded article__p">
+              I fællesskab kan vi finde de rigtige løsninger, der giver mening lokalt og derfor
+              skaber ægte bæredygtighed.
+            </p>
             <a class="a--gridend" href="">Læs mere &#8594;</a>
           </div>
         </article>
         <article class="article--shadow">
           <div class="article__image__con">
-            <Image class="article__image" format={'webp'} width={379} height={380} src={articleImage2} alt="Papir med skrift"></Image>
+            <Image
+              class="article__image"
+              format={'webp'}
+              width={379}
+              height={380}
+              src={articleImage2}
+              alt="Papir med skrift"
+            />
           </div>
           <div class="article__text__con">
             <h4>Sådan driver du bæredygtig ledelse</h4>
-            <p class="p--faded  article__p">Omstillingen til at blive bæredygtige virksomheder og organisationer er kompleks. Det er en ny måde at drive virksomhed på.</p>
+            <p class="p--faded article__p">
+              Omstillingen til at blive bæredygtige virksomheder og organisationer er kompleks. Det
+              er en ny måde at drive virksomhed på.
+            </p>
             <a href="">Læs mere &#8594;</a>
           </div>
         </article>
         <article>
-          <Image class="article__image" format={'webp'} src={articleImage3} alt="Håndarbejdere"></Image>
+          <Image class="article__image" format={'webp'} src={articleImage3} alt="Håndarbejdere" />
           <div class="article__text__con">
             <h4>Studerende udvikler bæredygtige løsninger</h4>
-            <p class="p--faded  article__p">Hvordan genanvender vi mere byggeaffald fra renoveringsprojekter? Kan vi skabe et nyt marked for genbrug af materialer i byggebranchen?</p>
+            <p class="p--faded article__p">
+              Hvordan genanvender vi mere byggeaffald fra renoveringsprojekter? Kan vi skabe et nyt
+              marked for genbrug af materialer i byggebranchen?
+            </p>
             <a href="">Læs mere &#8594;</a>
           </div>
         </article>
       </div>
-      <Button class='section__btn--more' title={'Mere om os'}></Button>
+      <Button class="section__btn--more" title={'Mere om os'} />
     </section>
-    <Gallery heading='Bliv inspireret af'></Gallery>
+    <Gallery heading="Bliv inspireret af" />
   </div>
 </StartLayout>
 
@@ -100,7 +121,8 @@ import Gallery from '../layouts/Gallery.astro';
     font-size: 18px;
   }
 
-  .p--faded, .heading--faded {
+  .p--faded,
+  .heading--faded {
     opacity: 30%;
   }
 
@@ -129,7 +151,8 @@ import Gallery from '../layouts/Gallery.astro';
     grid-template-columns: 1fr;
   }
 
-  .hero__image, .hero__title {
+  .hero__image,
+  .hero__title {
     grid-column: 1 / 1;
     grid-row: 1 / 1;
   }
@@ -138,12 +161,12 @@ import Gallery from '../layouts/Gallery.astro';
     width: 100%;
     height: auto;
   }
-  
+
   .hero__title {
     align-self: center;
     justify-self: end;
     padding-right: 13em;
-  } 
+  }
 
   .hero__title p {
     margin: 0;
@@ -173,7 +196,7 @@ import Gallery from '../layouts/Gallery.astro';
     transition: 0.3s;
   }
 
-  .product__image:hover {
+  .product__image__con:hover {
     transform: scale(1.35);
     box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.3);
   }
@@ -249,7 +272,7 @@ import Gallery from '../layouts/Gallery.astro';
     margin-top: 6em;
   }
 
-  .p--italic{
+  .p--italic {
     color: white;
     font-style: italic;
     font-size: 36px;
@@ -264,17 +287,20 @@ import Gallery from '../layouts/Gallery.astro';
     font-size: 64px;
   }
 
-
-  h2, h3, h4 {
-    font-size: 48px
+  h2,
+  h3,
+  h4 {
+    font-size: 48px;
   }
 
-  h1, h3, h4 {
+  h1,
+  h3,
+  h4 {
     margin: 0;
   }
 
   span {
-    color: #939FA4;
+    color: #939fa4;
     font-weight: 300;
   }
 </style>

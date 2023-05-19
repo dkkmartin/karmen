@@ -10,14 +10,64 @@ import Button from '../components/Button.astro';
 
 <script>
   const sliders = document.querySelectorAll('.slide');
-  const dots = document.querySelectorAll('.dot');
+  const dots = Array.from(document.querySelectorAll('.dot'));
   const arrowLeft = document.querySelector('.fa-arrow-left');
   const arrowRight = document.querySelector('.fa-arrow-right');
   let index = 1;
 
-  arrowLeft.addEventListener('click', () => {});
+  arrowLeft.addEventListener('click', () => {
+    // Fjerne class active på den viste slider
+    sliders[index].classList.remove('slide--active');
+    // Fjerne class active på den viste dot
+    dots[index].classList.remove('dot--active');
+    // Index decrement
+    index--;
+    // Hvis index er mindre end 0
+    if (index < 0) {
+      // Index giver længden af variable sliders - 1
+      // Minus 1 er fordi vi vil have index nummeret og ikke længden da længden af nodelisten er 3
+      index = sliders.length - 1;
+    }
+    // Tilføjer class active på sliders[index]
+    sliders[index].classList.add('slide--active');
+    // Tilføjer class active på dots[index]
+    dots[index].classList.add('dot--active');
+  });
 
-  arrowRight.addEventListener('click', () => {});
+  arrowRight.addEventListener('click', () => {
+    // Fjerne class active på den viste slider
+    sliders[index].classList.remove('slide--active');
+    // Fjerne class active på den viste dot
+    dots[index].classList.remove('dot--active');
+    // Index increment
+    index++;
+    // Hvis index er større eller ligmed længden af sliders
+    if (index >= sliders.length) {
+      // Index giver 0
+      index = 0;
+    }
+    // Tilføjer class active på sliders[index]
+    sliders[index].classList.add('slide--active');
+    // Tilføjer class active på dots[index]
+    dots[index].classList.add('dot--active');
+  });
+
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      // Gemmer det clicked index nummer i variablen clickedIndex
+      const clickedIndex = dots.indexOf(dot);
+      // Fjerne class active på den viste dot
+      dots[index].classList.remove('dot--active');
+      // Fjerne class active på den viste slider
+      sliders[index].classList.remove('slide--active');
+      // index giver clickedIndex
+      index = clickedIndex;
+      // Tilføjer class active på dots[index]
+      dots[index].classList.add('dot--active');
+      // Tilføjer class active på sliders[index]
+      sliders[index].classList.add('slide--active');
+    });
+  });
 </script>
 
 <StartLayout>
@@ -35,7 +85,7 @@ import Button from '../components/Button.astro';
               height={350}
             />
           </div>
-          <div class="slide slide__2">
+          <div class="slide slide__2 slide--active">
             <Image
               src={plante2}
               format={'webp'}
@@ -83,8 +133,13 @@ import Button from '../components/Button.astro';
 
 <style>
   .slide__1,
+  .slide__2,
   .slide__3 {
     display: none;
+  }
+
+  .slide--active {
+    display: block;
   }
 
   .fa-solid {
@@ -129,9 +184,10 @@ import Button from '../components/Button.astro';
   .image__arrows__con {
     width: 100%;
     height: 100%;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
     align-items: center;
-    justify-content: space-evenly;
+    justify-items: center;
     padding-bottom: 1.7em;
   }
 
@@ -146,6 +202,7 @@ import Button from '../components/Button.astro';
     width: 15px;
     border: 1px solid var(--secondary-font-blue);
     border-radius: 50px;
+    cursor: pointer;
   }
 
   .dot--active {
