@@ -30,8 +30,10 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
             <p class="p--faded">Inkl. malerlærred</p>
           </div>
           <div>
-            <p class="p--bold">30 kr</p>
-            <p class="p--faded">Før: 95 kr</p>
+            <p class="p--bold price">30 kr</p>
+          </div>
+          <div>
+            <i class="fa-solid fa-trash-can"></i>
           </div>
         </div>
         <div class="product product__sukkulent">
@@ -43,11 +45,14 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
             <p class="p--faded">Grøn plante</p>
           </div>
           <div>
-            <p class="p--bold">50 kr</p>
-            <p class="p--faded">Før: 150 kr</p>
+            <p class="p--bold price">50 kr</p>
+          </div>
+          <div>
+            <i class="fa-solid fa-trash-can"></i>
           </div>
         </div>
       </div>
+      <Button class="pay__btn" title={'Gå til betaling'} />
     </section>
   </div>
 </StartLayout>
@@ -64,11 +69,13 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
     padding-top: 5em;
     padding-bottom: 10em;
     margin-bottom: 18em;
+    display: grid;
+    grid-template-rows: 1fr 4fr 1fr;
   }
 
   .product {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     justify-items: center;
     align-items: center;
     width: 80%;
@@ -113,6 +120,17 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 
   .padding--120px {
     padding-top: 0;
+  }
+
+  .pay__btn {
+    max-height: 60px;
+    align-self: center;
+    justify-self: end;
+    margin-right: 15%;
+  }
+
+  .fa-trash-can {
+    font-size: 18px;
   }
 
   h1 {
