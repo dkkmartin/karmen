@@ -1,0 +1,39 @@
+---
+---
+
+<div>
+  <button class="btn__minus">-</button>
+  <p>0</p>
+  <button class="btn__plus">+</button>
+</div>
+
+<style>
+  * {
+    margin: 0;
+  }
+
+  div {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  button {
+    background-color: inherit;
+    border: 2px solid var(--secondary-bg-color);
+    cursor: pointer;
+  }
+
+  p {
+    background-color: var(--secondary-bg-color);
+    padding: 1em;
+    color: #fff;
+  }
+
+  .btn__plus {
+    border-radius: 0px 5px 5px 0px;
+  }
+
+  .btn__minus {
+    border-radius: 5px 0px 0px 5px;
+  }
+</style>

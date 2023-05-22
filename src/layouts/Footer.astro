@@ -9,13 +9,10 @@ import Button from '../components/Button.astro';
 <script>
   const listLink1 = document.querySelector('.footer__li__1');
   const listLink2 = document.querySelector('.footer__li__2');
-  const listLink3 = document.querySelector('.footer__li__3');
   const listLink4 = document.querySelector('.footer__li__4');
 
   if (document.URL.includes('karmen/produkter')) {
     listLink2.classList.add('active__footer');
-  } else if (document.URL.includes('karmen/mere-info')) {
-    listLink3.classList.add('active__footer');
   } else if (document.URL.includes('karmen/produkt')) {
     listLink2.classList.add('active__footer');
   } else if (document.URL.includes('karmen/kurv')) {
@@ -39,7 +36,7 @@ import Button from '../components/Button.astro';
     <ul>
       <li class="footer__li__1"><a href="/karmen/">Forside</a></li>
       <li class="footer__li__2"><a href="/karmen/produkter/">Produkter</a></li>
-      <li class="footer__li__3"><a href="/karmen/mere-info/">Mere info</a></li>
+      <li class="footer__li__3"><a href="">Mere info</a></li>
       <li class="footer__li__4">
         <a href="/karmen/kurv/"><i class="fa-solid fa-cart-plus"></i>Kurv</a>
       </li>

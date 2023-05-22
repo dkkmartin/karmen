@@ -8,6 +8,7 @@ import kurv from '../assets/kurv.png';
 import ugle from '../assets/ugle.png';
 import krokodille from '../assets/krokodille.png';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import ItemAdder from '../components/ItemAdder.astro';
 ---
 
 <StartLayout
@@ -29,6 +30,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
             <p class="p--bold">Mini staffeli</p>
             <p class="p--faded">Inkl. malerlærred</p>
           </div>
+          <ItemAdder />
           <div>
             <p class="p--bold price">30 kr</p>
           </div>
@@ -36,7 +38,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
             <i class="fa-solid fa-trash-can"></i>
           </div>
         </div>
-        <div class="product product__sukkulent">
+        <div class="product">
           <div class="product__image__con">
             <Image format={'webp'} src={plante} width={108} height={134} alt="Sukkulent" />
           </div>
@@ -44,6 +46,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
             <p class="p--bold">Sukkulent</p>
             <p class="p--faded">Grøn plante</p>
           </div>
+          <ItemAdder />
           <div>
             <p class="p--bold price">50 kr</p>
           </div>
@@ -75,12 +78,13 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 
   .product {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     justify-items: center;
     align-items: center;
     width: 80%;
     height: 185px;
     margin: 0 auto;
+    background-color: #fff;
   }
 
   .product__image__con {
@@ -92,7 +96,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
     align-items: center;
     border-radius: 5px;
     position: relative;
-    right: 6.2em;
+    right: 3.2em;
     transition: 0.3s;
   }
 
@@ -114,10 +118,6 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
     opacity: 30%;
   }
 
-  .product__sukkulent {
-    background-color: #fff;
-  }
-
   .padding--120px {
     padding-top: 0;
   }
@@ -131,6 +131,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 
   .fa-trash-can {
     font-size: 18px;
+    cursor: pointer;
   }
 
   h1 {
