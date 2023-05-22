@@ -1,6 +1,7 @@
 ---
 import StartLayout from '../layouts/StartLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Button from '../components/Button.astro';
 ---
 
 <StartLayout
@@ -8,4 +9,105 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
   description={'Udfyld vores formular og send dine oplysninger nemt og sikkert til Karmen Webshop. Vi er dedikerede til at tilbyde dig en problemfri oplevelse, når du bestiller vores miljøvenlige produkter og FSC-verificerede sukkulenter. Udfyld formen med dine kontaktoplysninger og eventuelle specifikke anmodninger, og vi vil vende tilbage til dig hurtigst muligt. Vær med til at skabe en mere bæredygtig fremtid med vores produkter. Udfyld formularen i dag!'}
 >
   <Breadcrumbs />
+  <div class="padding--120px">
+    <h1>Fakturering</h1>
+    <section class="section__form__address">
+      <form class="form__address">
+        <label for="address">Adresse</label>
+        <input type="text" id="adress" />
+        <div class="form__middle__con">
+          <div>
+            <label for="city">By</label>
+            <input type="text" id="city" />
+          </div>
+          <div>
+            <label for="zipcode">Postnummer</label>
+            <input type="number" inputmode="numeric" id="zipcode" />
+          </div>
+        </div>
+        <label for="email">Email</label>
+        <input type="email" id="email" />
+        <Button class={'form__submit'} title={'Til betaling'} />
+      </form>
+    </section>
+    <section class="section__form__payment">
+      <form class="form__payment"></form>
+    </section>
+  </div>
 </StartLayout>
+
+<style>
+  .padding--120px {
+    background-color: var(--primary-bg-color);
+  }
+
+  .section__form__address {
+    max-width: 670px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 30px;
+    filter: drop-shadow(0px 20px 40px rgba(13, 18, 39, 0.3));
+    padding: 5em;
+  }
+
+  .form__address {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+  }
+
+  .form__middle__con {
+    display: flex;
+    gap: 6em;
+  }
+
+  .form__middle__con div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .section__form__payment {
+    padding-bottom: 10em;
+  }
+
+  .form__submit {
+    max-width: 170px;
+  }
+
+  #city,
+  #zipcode {
+    max-width: 130px;
+    margin-top: 1em;
+  }
+
+  label {
+    font-size: 20px;
+    opacity: 30%;
+  }
+
+  input {
+    border: none;
+    border-bottom: 2px solid #f2f4f6;
+    font-size: 24px;
+    outline: none;
+  }
+
+  /* NO ARROWS IN INPUT FOR TYPE NUMBER */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+
+  h1 {
+    font-size: 56px;
+    font-weight: 100;
+    max-width: 670px;
+    margin: 0 auto;
+    padding-bottom: 1em;
+  }
+</style>
