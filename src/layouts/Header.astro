@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import logo from '../assets/karmen-logo-sort.png';
+import menu from '../assets/menu.svg';
 import { Image, Picture } from '@astrojs/image/components';
 ---
 
@@ -8,6 +9,8 @@ import { Image, Picture } from '@astrojs/image/components';
   const listLink1 = document.querySelector('.li__1');
   const listLink2 = document.querySelector('.li__2');
   const listLink4 = document.querySelector('.li__4');
+  const menuBtn = document.querySelector('.menu__btn');
+  const menuNav = document.querySelector('nav');
 
   if (document.URL.includes('karmen/produkter')) {
     listLink2.classList.add('active__header');
@@ -22,10 +25,15 @@ import { Image, Picture } from '@astrojs/image/components';
   } else {
     listLink1.classList.add('active__header');
   }
+
+  menuBtn.addEventListener('click', () => {
+    menuNav.classList.toggle('nav--active');
+  });
 </script>
 
 <header id="top">
   <Image format={'webp'} src={logo} width={117} height={50} alt="Logo for Karmen webshop" />
+  <Image class="menu__btn" format={'svg'} src={menu} width={35} height={30} alt="Menu knap" />
   <nav>
     <ul>
       <li class="li__1"><a href="/karmen/">Forside</a></li>
@@ -37,6 +45,14 @@ import { Image, Picture } from '@astrojs/image/components';
 </header>
 
 <style>
+  .menu__btn {
+    display: none;
+  }
+
+  .nav--active {
+    display: flex;
+  }
+
   header {
     background-color: var(--primary-bg-color-pink);
     display: flex;
@@ -78,5 +94,42 @@ import { Image, Picture } from '@astrojs/image/components';
 
   .active__header {
     border-bottom: 3px solid var(--secondary-bg-color);
+  }
+
+  @media only screen and (max-width: 450px) {
+    .menu__btn {
+      display: block;
+    }
+
+    nav {
+      display: none;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      height: 100vh;
+      width: 100vw;
+      background-color: var(--primary-bg-color-pink);
+    }
+
+    ul {
+      flex-direction: column;
+      justify-content: center;
+      gap: 5em;
+      width: 100%;
+    }
+
+    li {
+      height: initial;
+      width: 100%;
+      font-size: 40px;
+    }
+
+    header {
+      justify-content: space-around;
+    }
+
+    .active__header {
+      border: none;
+    }
   }
 </style>
