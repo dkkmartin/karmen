@@ -1,23 +1,35 @@
+---
+---
+
+<script>
+  const crumb4 = document.querySelector('.pointer--4');
+  const crumb3 = document.querySelector('.pointer--3');
+  if (document.URL.includes('karmen/betaling')) {
+    crumb3.classList.remove('current');
+    crumb4.classList.add('current');
+  }
+</script>
+
 <section class="breadcrumbs">
-  <a href="/karmen/" class="pointer" id="first">
+  <a href="/karmen/" class="pointer pointer--1" id="first">
     <div>
       <i class="fa-solid fa-house" style="color: #8093A7;"></i>
       <span>Forside</span>
     </div></a
   >
-  <a href="/karmen/produkter/" class="pointer">
+  <a href="/karmen/produkter/" class="pointer pointer--2">
     <div>
       <i class="fa-solid fa-bag-shopping" style="color: #8093A7;"></i>
       <span>Produkter</span>
     </div></a
   >
-  <a href="/karmen/kurv/" class="pointer current">
+  <a href="/karmen/kurv/" class="pointer pointer--3 current">
     <div>
       <i class="fa-solid fa-cart-plus" style="color: #8093A7;"></i>
       <span>Kurv</span>
     </div></a
   >
-  <a href="#" class="pointer" id="last">
+  <a href="/karmen/betaling/" class="pointer pointer--4" id="last">
     <div>
       <i class="fa-solid fa-credit-card" style="color: #8093A7;"></i>
       <span>Betaling</span>
@@ -27,7 +39,7 @@
 
 <style>
   .breadcrumbs {
-    max-width: 800px;
+    max-width: 1000px;
     max-height: 80px;
   }
 

@@ -33,21 +33,21 @@ import Button from '../components/Button.astro';
     <section class="section__form__payment">
       <div class="form__payment__info">
         <h2>Betalings oversigt</h2>
-        <div>
+        <div class="info__con">
           <div>
-            <p>mini staffeli</p>
+            <p>Mini staffeli</p>
             <p>1 stk.</p>
           </div>
           <div>
-            <p>sukkulent</p>
+            <p>Sukkulent</p>
             <p>2 stk.</p>
           </div>
-          <div>
+          <div class="info__padding__top info__border">
             <p>Sum</p>
             <p>130 DKK</p>
           </div>
         </div>
-        <div>
+        <div class="info__con">
           <div>
             <p>Fragt</p>
             <p>30 DKK</p>
@@ -56,14 +56,14 @@ import Button from '../components/Button.astro';
             <p>Moms</p>
             <p>32.5 DKK</p>
           </div>
-          <div>
+          <div class="info__padding__top">
             <p>Total sum:</p>
-            <p>192.g DKK</p>
+            <p>192.5 DKK</p>
           </div>
         </div>
       </div>
       <div class="payment__tabs">
-        <p>Kreditkort</p>
+        <p class="tab--active">Kreditkort</p>
         <p>Mobile pay</p>
         <p>Paypal</p>
       </div>
@@ -82,6 +82,7 @@ import Button from '../components/Button.astro';
         </div>
         <label for="card__name">Navn</label>
         <input id="card__name" type="text" />
+        <Button title={'Bestil nu'} class={'btn__order__now'} />
       </form>
     </section>
   </div>
@@ -99,12 +100,13 @@ import Button from '../components/Button.astro';
     border-radius: 30px;
     filter: drop-shadow(0px 20px 40px rgba(13, 18, 39, 0.3));
     padding: 5em;
+    margin-bottom: 6em;
   }
 
   .form__address {
     display: flex;
     flex-direction: column;
-    gap: 2em;
+    gap: 1em;
   }
 
   .form__middle__con {
@@ -112,9 +114,15 @@ import Button from '../components/Button.astro';
     gap: 6em;
   }
 
-  .form__middle__con div {
+  .form__address .form__middle__con div {
     display: flex;
     flex-direction: column;
+  }
+
+  .form__payment .form__middle__con div {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
   }
 
   .form__submit {
@@ -124,35 +132,102 @@ import Button from '../components/Button.astro';
   .form__payment__info {
     grid-area: info;
     background-color: var(--primary-bg-color-pink);
-    width: 100%;
+    border-radius: 30px 0px 0px 30px;
+    padding: 4em;
   }
 
   .payment__tabs {
+    max-width: 700px;
     grid-area: tabs;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    gap: 5em;
+    gap: 2em;
     border-bottom: 2px solid #f2f4f6;
+  }
+
+  .payment__tabs p {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 1em;
+    cursor: pointer;
+  }
+
+  .tab--active {
+    border-bottom: 4px solid var(--secondary-bg-color);
   }
 
   .form__payment {
     grid-area: form;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 500px;
+    padding-left: 4em;
+    padding-top: 3em;
+    gap: 2em;
+  }
+
+  .form__payment .form__middle__con input {
+    max-width: 130px;
   }
 
   .section__form__payment {
+    filter: drop-shadow(0px 20px 40px rgba(13, 18, 39, 0.3));
     max-width: 1170px;
-    max-height: 738px;
+    height: 738px;
     margin: 0 auto;
     background-color: #fff;
     border-radius: 30px;
     display: grid;
     grid-template-areas:
-      'info info info info info info info tabs'
-      'info info info info info info info form'
-      'info info info info info info info form'
-      'info info info info info info info form'
-      'info info info info info info info form';
+      'info tabs tabs tabs'
+      'info tabs tabs tabs'
+      'info form form form'
+      'info form form form'
+      'info form form form';
+  }
+
+  .btn__order__now {
+    width: 170px;
+    margin-left: auto;
+  }
+
+  .form__payment__info div div {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .form__payment__info p {
+    margin: 0.2em;
+  }
+
+  .info__padding__top {
+    margin: 1em 0;
+    font-weight: 500;
+  }
+
+  .info__border {
+    border-bottom: 6px solid var(--secondary-bg-color);
+  }
+
+  .info__border p:nth-child(2) {
+    padding-bottom: 1em;
+  }
+
+  .info__con {
+    padding-top: 4em;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .info__con:nth-of-type(2) {
+    padding: 1em 0;
+  }
+
+  .form__payment input {
+    max-width: 430px;
   }
 
   #city,
@@ -171,6 +246,7 @@ import Button from '../components/Button.astro';
     border-bottom: 2px solid #f2f4f6;
     font-size: 24px;
     outline: none;
+    padding-bottom: 1em;
   }
 
   /* NO ARROWS IN INPUT FOR TYPE NUMBER */
@@ -190,5 +266,9 @@ import Button from '../components/Button.astro';
     max-width: 670px;
     margin: 0 auto;
     padding-bottom: 1em;
+  }
+  h2 {
+    font-size: 24px;
+    font-weight: 500;
   }
 </style>
