@@ -31,7 +31,58 @@ import Button from '../components/Button.astro';
       </form>
     </section>
     <section class="section__form__payment">
-      <form class="form__payment"></form>
+      <div class="form__payment__info">
+        <h2>Betalings oversigt</h2>
+        <div>
+          <div>
+            <p>mini staffeli</p>
+            <p>1 stk.</p>
+          </div>
+          <div>
+            <p>sukkulent</p>
+            <p>2 stk.</p>
+          </div>
+          <div>
+            <p>Sum</p>
+            <p>130 DKK</p>
+          </div>
+        </div>
+        <div>
+          <div>
+            <p>Fragt</p>
+            <p>30 DKK</p>
+          </div>
+          <div>
+            <p>Moms</p>
+            <p>32.5 DKK</p>
+          </div>
+          <div>
+            <p>Total sum:</p>
+            <p>192.g DKK</p>
+          </div>
+        </div>
+      </div>
+      <div class="payment__tabs">
+        <p>Kreditkort</p>
+        <p>Mobile pay</p>
+        <p>Paypal</p>
+      </div>
+      <form class="form__payment">
+        <label for="ccn">Kort nummer</label>
+        <input id="ccn" type="tel" inputmode="numeric" />
+        <div class="form__middle__con">
+          <div>
+            <label for="expiry">Udløbsdato</label>
+            <input type="text" id="expiry" />
+          </div>
+          <div>
+            <label for="cvv">CVV</label>
+            <input type="number" inputmode="numeric" id="cvv" />
+          </div>
+        </div>
+        <label for="card__name">Navn</label>
+        <input id="card__name" type="text" />
+      </form>
     </section>
   </div>
 </StartLayout>
@@ -66,12 +117,42 @@ import Button from '../components/Button.astro';
     flex-direction: column;
   }
 
-  .section__form__payment {
-    padding-bottom: 10em;
-  }
-
   .form__submit {
     max-width: 170px;
+  }
+
+  .form__payment__info {
+    grid-area: info;
+    background-color: var(--primary-bg-color-pink);
+    width: 100%;
+  }
+
+  .payment__tabs {
+    grid-area: tabs;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 5em;
+    border-bottom: 2px solid #f2f4f6;
+  }
+
+  .form__payment {
+    grid-area: form;
+  }
+
+  .section__form__payment {
+    max-width: 1170px;
+    max-height: 738px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 30px;
+    display: grid;
+    grid-template-areas:
+      'info info info info info info info tabs'
+      'info info info info info info info form'
+      'info info info info info info info form'
+      'info info info info info info info form'
+      'info info info info info info info form';
   }
 
   #city,

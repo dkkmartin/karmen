@@ -1,15 +1,15 @@
 ---
-import {Image, Picture} from '@astrojs/image/components'
-import instaImage1 from '../assets/galleri_1.jpg'
-import instaImage2 from '../assets/galleri_2.jpg'
-import instaImage3 from '../assets/galleri_3.jpg'
-import instaImage4 from '../assets/galleri_4.jpg'
-import instaImage5 from '../assets/galleri_5.jpg'
-import instaImage6 from '../assets/galleri_6.jpg'
-import instaImage7 from '../assets/galleri_7.jpg'
-import instaImage8 from '../assets/galleri_8.jpg'
-import instaImage9 from '../assets/galleri_9.jpg'
-import instaImage10 from '../assets/galleri_10.jpg'
+import { Image, Picture } from '@astrojs/image/components';
+import instaImage1 from '../assets/galleri_1.jpg';
+import instaImage2 from '../assets/galleri_2.jpg';
+import instaImage3 from '../assets/galleri_3.jpg';
+import instaImage4 from '../assets/galleri_4.jpg';
+import instaImage5 from '../assets/galleri_5.jpg';
+import instaImage6 from '../assets/galleri_6.jpg';
+import instaImage7 from '../assets/galleri_7.jpg';
+import instaImage8 from '../assets/galleri_8.jpg';
+import instaImage9 from '../assets/galleri_9.jpg';
+import instaImage10 from '../assets/galleri_10.jpg';
 
 const { heading } = Astro.props;
 ---
@@ -23,34 +23,115 @@ const { heading } = Astro.props;
   <div class="gallery__con">
     <!--- Astro formatere og optimere selv billeder -->
     <a target="_blank" href="https://instagram.com">
-      <Image class='gallery__image' src={instaImage1} alt="" width={238} height={238} format={'webp'} alt="Instagram Karmen foto"></Image></a>
-      <a target="_blank" href="https://instagram.com">
-        <Image class='gallery__image' src={instaImage2} alt="" width={238} height={238} format={'webp'} alt="Instagram Karmen foto"></Image>
-      </a>
-      <a target="_blank" href="https://instagram.com">
-        <Image class='gallery__image' src={instaImage3} alt="" width={238} height={238} format={'webp'} alt="Instagram Karmen foto"></Image>
-      </a>
-      <a target="_blank" href="https://instagram.com">
-        <Image class='gallery__image' src={instaImage4} alt="" width={238} height={238} format={'webp'} alt="Instagram Karmen foto"></Image>
-      </a>
-      <a target="_blank" href="https://instagram.com">
-        <Image class='gallery__image' src={instaImage5} alt="" width={238} height={238} format={'webp'} alt="Instagram Karmen foto"></Image>
-      </a>
-      <a target="_blank" href="https://instagram.com">
-        <Image class='gallery__image' src={instaImage6} alt="" width={238} height={238} format={'webp'} alt="Instagram Karmen foto"></Image>
-      </a>
-      <a target="_blank" href="https://instagram.com">
-        <Image class='gallery__image' src={instaImage7} alt="" width={238} height={238} format={'webp'} alt="Instagram Karmen foto"></Image>
-      </a>
-      <a target="_blank" href="https://instagram.com">
-        <Image class='gallery__image' src={instaImage8} alt="" width={238} height={238} format={'webp'} alt="Instagram Karmen foto"></Image>
-      </a>
-      <a target="_blank" href="https://instagram.com">
-        <Image class='gallery__image' src={instaImage9} alt="" width={238} height={238} format={'webp'} alt="Instagram Karmen foto"></Image>
-      </a>
-      <a target="_blank" href="https://instagram.com">
-        <Image class='gallery__image' src={instaImage10} alt="" width={238} height={238} format={'webp'} alt="Instagram Karmen foto"></Image>
-      </a>
+      <Image
+        class="gallery__image"
+        src={instaImage1}
+        alt=""
+        width={238}
+        height={238}
+        format={'webp'}
+        alt="Instagram Karmen foto"
+      /></a
+    >
+    <a target="_blank" href="https://instagram.com">
+      <Image
+        class="gallery__image"
+        src={instaImage2}
+        alt=""
+        width={238}
+        height={238}
+        format={'webp'}
+        alt="Instagram Karmen foto"
+      />
+    </a>
+    <a target="_blank" href="https://instagram.com">
+      <Image
+        class="gallery__image"
+        src={instaImage3}
+        alt=""
+        width={238}
+        height={238}
+        format={'webp'}
+        alt="Instagram Karmen foto"
+      />
+    </a>
+    <a target="_blank" href="https://instagram.com">
+      <Image
+        class="gallery__image"
+        src={instaImage4}
+        alt=""
+        width={238}
+        height={238}
+        format={'webp'}
+        alt="Instagram Karmen foto"
+      />
+    </a>
+    <a target="_blank" href="https://instagram.com">
+      <Image
+        class="gallery__image"
+        src={instaImage5}
+        alt=""
+        width={238}
+        height={238}
+        format={'webp'}
+        alt="Instagram Karmen foto"
+      />
+    </a>
+    <a target="_blank" href="https://instagram.com">
+      <Image
+        class="gallery__image"
+        src={instaImage6}
+        alt=""
+        width={238}
+        height={238}
+        format={'webp'}
+        alt="Instagram Karmen foto"
+      />
+    </a>
+    <a target="_blank" href="https://instagram.com">
+      <Image
+        class="gallery__image"
+        src={instaImage7}
+        alt=""
+        width={238}
+        height={238}
+        format={'webp'}
+        alt="Instagram Karmen foto"
+      />
+    </a>
+    <a target="_blank" href="https://instagram.com">
+      <Image
+        class="gallery__image"
+        src={instaImage8}
+        alt=""
+        width={238}
+        height={238}
+        format={'webp'}
+        alt="Instagram Karmen foto"
+      />
+    </a>
+    <a target="_blank" href="https://instagram.com">
+      <Image
+        class="gallery__image"
+        src={instaImage9}
+        alt=""
+        width={238}
+        height={238}
+        format={'webp'}
+        alt="Instagram Karmen foto"
+      />
+    </a>
+    <a target="_blank" href="https://instagram.com">
+      <Image
+        class="gallery__image"
+        src={instaImage10}
+        alt=""
+        width={238}
+        height={238}
+        format={'webp'}
+        alt="Instagram Karmen foto"
+      />
+    </a>
   </div>
 </section>
 
@@ -59,29 +140,31 @@ const { heading } = Astro.props;
     opacity: 30%;
   }
 
-    .fa-instagram {
+  .fa-instagram {
     font-size: 70px;
     color: var(--primary-bg-color-pink);
   }
 
   .section__instagram {
-    padding: 3em 0 15em 0;
+    padding-top: 3em;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 4em;
   }
-  
+
   .instagram__title {
     text-align: center;
     font-size: 48px;
   }
 
-  .instagram__title, h4 {
+  .instagram__title,
+  h4 {
     margin: 0;
   }
 
-  .section__instagram, .heading--faded {
+  .section__instagram,
+  .heading--faded {
     font-weight: 300;
   }
 
