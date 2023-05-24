@@ -13,7 +13,7 @@
     width: 50px;
     background: linear-gradient(200.82deg, #ffe9e9 27.89%, #f9c4d2 83.86%) !important;
     box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.2);
-    position: sticky;
+    position: fixed;
     top: 90%;
     left: 93%;
     border-radius: 25px;
@@ -38,5 +38,15 @@
     -ms-transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
+  }
+
+  @media only screen and (max-width: 450px) {
+    .border {
+      height: 35px;
+      width: 35px;
+      left: 50%;
+      top: 95%;
+      transform: translate(-50%);
+    }
   }
 </style>

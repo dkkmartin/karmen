@@ -8,7 +8,7 @@ import Button from '../components/Button.astro';
   title={'Udfyld Formularen - Karmen Webshop '}
   description={'Udfyld vores formular og send dine oplysninger nemt og sikkert til Karmen Webshop. Vi er dedikerede til at tilbyde dig en problemfri oplevelse, når du bestiller vores miljøvenlige produkter og FSC-verificerede sukkulenter. Udfyld formen med dine kontaktoplysninger og eventuelle specifikke anmodninger, og vi vil vende tilbage til dig hurtigst muligt. Vær med til at skabe en mere bæredygtig fremtid med vores produkter. Udfyld formularen i dag!'}
 >
-  <Breadcrumbs />
+  <Breadcrumbs class="breadcrumbs" />
   <div class="padding--120px">
     <h1>Fakturering</h1>
     <section class="section__form__address">
@@ -270,5 +270,24 @@ import Button from '../components/Button.astro';
   h2 {
     font-size: 24px;
     font-weight: 500;
+  }
+
+  @media only screen and (max-width: 450px) {
+    .breadcrumbs {
+      display: none;
+    }
+
+    .padding--120px {
+      padding-top: 70px;
+    }
+
+    h1 {
+      font-size: 20px;
+      padding: 0 20px;
+    }
+
+    .section__form__address {
+      padding: 0 20px;
+    }
   }
 </style>

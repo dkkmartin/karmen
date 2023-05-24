@@ -15,9 +15,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
   description={'Foretag sikre og problemfri betalinger på Karmen-webshoppen for miljøvenlige produkter og FSC-verificerede sukkulenter. Vores betalingsside tilbyder en pålidelig og beskyttet betalingsproces, der sikrer dine personlige oplysninger. Vælg mellem forskellige betalingsmetoder og gennemfør din transaktion med lethed. Køb dine foretrukne bæredygtige produkter med tillid og ro i sindet. Betal nu og vær en del af den grønne bevægelse!'}
 >
   <div class="padding--120px">
-    <section>
-      <Breadcrumbs />
-    </section>
+    <Breadcrumbs class="breadcrumbs" />
     <section class="section--grey">
       <h1>Indkøbskurv</h1>
       <div class="section__con__products">
@@ -25,7 +23,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
           <div class="product__image__con image--staffeli">
             <Image format={'webp'} src={staffeli} width={108} height={134} alt="Mini staffeli" />
           </div>
-          <div class="product--title">
+          <div class="product__title">
             <p class="p--bold">Mini staffeli</p>
             <p class="p--faded">Inkl. malerlærred</p>
           </div>
@@ -34,10 +32,10 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
             <p class="item__count">0</p>
             <button class="btn__plus">+</button>
           </div>
-          <div>
+          <div class="item__price">
             <p class="p--bold price">30 kr</p>
           </div>
-          <div>
+          <div class="item__trash">
             <i class="fa-solid fa-trash-can"></i>
           </div>
         </div>
@@ -45,7 +43,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
           <div class="product__image__con">
             <Image format={'webp'} src={plante} width={108} height={134} alt="Sukkulent" />
           </div>
-          <div class="product--title">
+          <div class="product__title">
             <p class="p--bold">Sukkulent</p>
             <p class="p--faded">Grøn plante</p>
           </div>
@@ -54,10 +52,10 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
             <p class="item__count">0</p>
             <button class="btn__plus">+</button>
           </div>
-          <div>
+          <div class="item__price">
             <p class="p--bold price">50 kr</p>
           </div>
-          <div>
+          <div class="item__trash">
             <i class="fa-solid fa-trash-can"></i>
           </div>
         </div>
@@ -112,7 +110,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
     box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.3);
   }
 
-  .product--title {
+  .product__title {
     width: 130px;
   }
 
@@ -171,5 +169,71 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
     font-size: 48px;
     font-weight: 100;
     padding-left: 2em;
+  }
+
+  @media only screen and (max-width: 450px) {
+    .breadcrumbs {
+      display: none;
+    }
+
+    .section--grey {
+      padding: 2em 20px 0 20px;
+      margin-bottom: 5em;
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
+    }
+
+    .section--grey h1 {
+      padding-left: 0;
+      font-size: 20px;
+    }
+
+    .product__image__con {
+      grid-area: img;
+    }
+
+    .product__title {
+      grid-area: title;
+    }
+
+    .product__title p,
+    .item__price p {
+      font-size: 14px;
+    }
+
+    .item__counter {
+      grid-area: counter;
+    }
+
+    .item__price {
+      grid-area: price;
+    }
+
+    .item__trash {
+      grid-area: trash;
+    }
+
+    .product {
+      display: grid;
+      grid-template-columns: initial;
+      grid-template-areas:
+        'img img'
+        'title price'
+        'counter trash';
+      height: auto;
+      width: 100%;
+      background: inherit;
+      text-align: center;
+      gap: 1em;
+    }
+
+    .product__image__con {
+      position: static;
+    }
+
+    .pay__btn {
+      margin: 2em 0 2em 0;
+    }
   }
 </style>

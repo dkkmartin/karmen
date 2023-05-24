@@ -182,4 +182,20 @@ const { heading } = Astro.props;
   .gallery__image:hover {
     transform: scale(1.1);
   }
+
+  @media only screen and (max-width: 450px) {
+    .section__instagram {
+      gap: 1em;
+      padding: 0 20px 4em 20px;
+      margin-top: 4em;
+    }
+
+    .instagram__title {
+      font-size: 20px;
+    }
+
+    .fa-instagram {
+      font-size: 50px;
+    }
+  }
 </style>

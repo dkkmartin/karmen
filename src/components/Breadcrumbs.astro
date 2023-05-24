@@ -1,4 +1,5 @@
 ---
+const { class: className } = Astro.props;
 ---
 
 <script>
@@ -10,7 +11,7 @@
   }
 </script>
 
-<section class="breadcrumbs">
+<section class={className}>
   <a href="/karmen/" class="pointer pointer--1" id="first">
     <div>
       <i class="fa-solid fa-house" style="color: #8093A7;"></i>
@@ -38,7 +39,7 @@
 </section>
 
 <style>
-  .breadcrumbs {
+  section {
     max-width: 1000px;
     max-height: 80px;
   }

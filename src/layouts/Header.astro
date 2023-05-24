@@ -5,13 +5,12 @@ import menu from '../assets/menu.svg';
 import { Image, Picture } from '@astrojs/image/components';
 ---
 
+<script src="../scripts/menu.js"></script>
+
 <script>
   const listLink1 = document.querySelector('.li__1');
   const listLink2 = document.querySelector('.li__2');
   const listLink4 = document.querySelector('.li__4');
-  const menuBtn = document.querySelector('.menu__btn');
-  const menuNav = document.querySelector('nav');
-  const closeBtn = document.querySelector('.fa-circle-xmark');
 
   if (screen.width > 768) {
     if (document.URL.includes('karmen/produkter')) {
@@ -27,30 +26,6 @@ import { Image, Picture } from '@astrojs/image/components';
     } else {
       listLink1.classList.add('active__header');
     }
-  }
-
-  menuBtn.addEventListener('click', () => {
-    menuNav.classList.toggle('nav--active');
-    menuNav.classList.toggle('animate__fadeInRight');
-    closeBtn.style.display = 'block';
-  });
-
-  closeBtn.addEventListener('click', () => {
-    menuNav.classList.toggle('animate__fadeInRight');
-    menuNav.classList.toggle('animate__fadeOutRight');
-    delay(700).then(() => {
-      menuNav.classList.toggle('nav--active');
-      menuNav.classList.toggle('animate__fadeOutRight');
-      closeBtn.style.display = 'none';
-    });
-  });
-
-  menuNav.addEventListener('touchmove', (e) => {
-    e.preventDefault();
-  });
-
-  function delay(time) {
-    return new Promise((resolve) => setTimeout(resolve, time));
   }
 </script>
 

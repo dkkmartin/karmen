@@ -31,18 +31,18 @@ import Gallery from '../layouts/Gallery.astro';
     <section class="section--grey">
       <div class="section__con__title">
         <h2>Bedste <span>tilbud</span></h2>
-        <Button class="section__btn" title={'Se alle produkter'} />
+        <a href="/karmen/produkter/"><Button class="section__btn" title={'Se alle produkter'} /></a>
       </div>
       <div class="section__con__products">
         <div class="product">
           <div class="product__image__con image--staffeli">
             <Image format={'webp'} src={staffeli} width={108} height={134} alt="Mini staffeli" />
           </div>
-          <div class="product--title">
+          <div class="product__title">
             <p class="p--bold">Mini staffeli</p>
             <p class="p--faded">Inkl. malerlærred</p>
           </div>
-          <div>
+          <div class="product__price">
             <p class="p--bold">30 kr</p>
             <p class="p--faded">Før: 95 kr</p>
           </div>
@@ -51,11 +51,11 @@ import Gallery from '../layouts/Gallery.astro';
           <div class="product__image__con">
             <Image format={'webp'} src={plante} width={108} height={134} alt="Sukkulent" />
           </div>
-          <div class="product--title">
+          <div class="product__title">
             <p class="p--bold">Sukkulent</p>
             <p class="p--faded">Grøn plante</p>
           </div>
-          <div>
+          <div class="product__price">
             <p class="p--bold">50 kr</p>
             <p class="p--faded">Før: 150 kr</p>
           </div>
@@ -82,7 +82,7 @@ import Gallery from '../layouts/Gallery.astro';
             <a class="a--gridend" href="">Læs mere &#8594;</a>
           </div>
         </article>
-        <article class="article--shadow">
+        <article>
           <div class="article__image__con">
             <Image
               class="article__image"
@@ -133,6 +133,7 @@ import Gallery from '../layouts/Gallery.astro';
   .p--faded,
   .heading--faded {
     opacity: 30%;
+    font-weight: 300;
   }
 
   .section__con__title {
@@ -186,10 +187,6 @@ import Gallery from '../layouts/Gallery.astro';
     gap: 2em;
   }
 
-  .product__sukkulent {
-    background-color: #fff;
-  }
-
   .product__image__con {
     background-color: var(--primary-bg-color-pink);
     width: 281px;
@@ -221,9 +218,14 @@ import Gallery from '../layouts/Gallery.astro';
     width: 80%;
     height: 185px;
     margin: 0 auto;
+    transition: background-color 0.2s;
   }
 
-  .product--title {
+  .product:hover {
+    background-color: #fff;
+  }
+
+  .product__title {
     width: 130px;
   }
 
@@ -264,9 +266,13 @@ import Gallery from '../layouts/Gallery.astro';
     padding-top: 1.3em;
   }
 
-  .article--shadow {
+  .article__con article:hover {
     box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
+  }
+
+  .article__con article {
+    transition: 0.2s;
     height: 617px;
   }
 
@@ -351,13 +357,62 @@ import Gallery from '../layouts/Gallery.astro';
       font-size: 12px;
     }
 
+    .product__image__con {
+      grid-area: img;
+    }
+
+    .product__title {
+      grid-area: name;
+    }
+
+    .product__price {
+      grid-area: price;
+    }
+
     .product {
-      display: flex;
-      flex-direction: column;
+      text-align: center;
+      padding-top: 2em;
+      height: initial;
+      display: grid;
+      grid-template-columns: initial;
+      grid-template-areas:
+        'img img'
+        'name price';
     }
 
     .product__image__con {
       position: static;
+    }
+
+    .section--grey {
+      padding-bottom: 5em;
+      margin-bottom: 5em;
+    }
+
+    .section__history h3 {
+      font-size: 20px;
+    }
+
+    .article__con {
+      flex-direction: column;
+      padding: 3em 20px 0 20px;
+      gap: 3em;
+    }
+
+    .article__con article {
+      height: auto;
+    }
+
+    .article__text__con {
+      padding: 1em 0 0 1em;
+    }
+
+    .article__text__con h4 {
+      font-size: 16px;
+    }
+
+    .article__text__con p {
+      font-size: 14px;
     }
   }
 </style>

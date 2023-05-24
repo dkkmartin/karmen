@@ -7,6 +7,7 @@ import plante3 from '../assets/plante_3.png';
 import fscLogo from '../assets/forest_stewardship_council.png';
 import Button from '../components/Button.astro';
 import banner from '../assets/banner.svg';
+import bannerMobile from '../assets/banner_mobile.jpg';
 ---
 
 <script>
@@ -41,8 +42,8 @@ import banner from '../assets/banner.svg';
     dots[index].classList.remove('dot--active');
     // Index increment
     index++;
-    // Hvis index er større eller ligmed 3
-    if (index >= 3) {
+    // Hvis index er større end 2
+    if (index > 2) {
       // Index giver 0
       index = 0;
     }
@@ -69,8 +70,6 @@ import banner from '../assets/banner.svg';
     });
   });
 </script>
-
-<script></script>
 
 <StartLayout
   title={'Sukkulentplante - Bæredygtighed og Skønhed fra Karmen Webshop'}
@@ -139,45 +138,53 @@ import banner from '../assets/banner.svg';
           <h3>Ydelser til arbejdere og deres familier</h3>
           <p>Uddannelse til arbejdere og deres familier</p>
           <div class="progress__bar">
-            <div class="progress--27">27%</div>
+            <div class="progress--27"><p>27%</p></div>
           </div>
           <p>Andre ydelser for arbejde og deres familier</p>
           <div class="progress__bar">
-            <div class="progress--20">20%</div>
+            <div class="progress--20"><p>20%</p></div>
           </div>
           <p>Finans- og låneydelser til arbejdere og deres familier</p>
           <div class="progress__bar">
-            <div class="progress--17">17%</div>
+            <div class="progress--17"><p>17%</p></div>
           </div>
           <p>Sundhedsydelser til arbejdere og deres familier</p>
           <div class="progress__bar">
-            <div class="progress--14">14%</div>
+            <div class="progress--14"><p>14%</p></div>
           </div>
           <p>Investering i husning til arbejdere</p>
           <div class="progress__bar">
-            <div class="progress--3">3%</div>
+            <div class="progress--3"><p>3%</p></div>
           </div>
           <h3>Fællesskabsydelser</h3>
           <p>Uddannelsesydelser til fællesskaber</p>
           <div class="progress__bar">
-            <div class="progress--4">4%</div>
+            <div class="progress--4"><p>4%</p></div>
           </div>
           <h3>Træning af arbejdere</h3>
           <p>Træning af arbejdere</p>
           <div class="progress__bar">
-            <div class="progress--5">5%</div>
+            <div class="progress--5"><p>5%</p></div>
           </div>
           <p>Komité og andre komitérelaterede omkostninger</p>
           <div class="progress__bar">
-            <div class="progress--4">4%</div>
+            <div class="progress--4"><p>4%</p></div>
           </div>
           <p>Træning af komitémedlemmer</p>
           <div class="progress__bar">
-            <div class="progress--2">2%</div>
+            <div class="progress--2"><p>2%</p></div>
           </div>
         </article>
         <aside>
-          <Image src={banner} format={'svg'} alt="Ad from OnePlus 7" width={160} height={600} />
+          <Image class="banner--small" src={bannerMobile} format={'webp'} alt="Ad from OnePlus 7" />
+          <Image
+            class="banner--big"
+            src={banner}
+            format={'svg'}
+            alt="Ad from OnePlus 7"
+            width={160}
+            height={600}
+          />
         </aside>
       </div>
     </section>
@@ -187,7 +194,8 @@ import banner from '../assets/banner.svg';
 <style>
   .slide__1,
   .slide__2,
-  .slide__3 {
+  .slide__3,
+  .banner--small {
     display: none;
   }
 
@@ -280,9 +288,18 @@ import banner from '../assets/banner.svg';
     flex: 1;
   }
 
-  .section__fairtrade p {
+  .fairtrade__con p {
     font-size: 20px;
     opacity: 30%;
+  }
+
+  .progress__bar p {
+    opacity: initial;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    -webkit-text-stroke-width: 0.12px;
+    -webkit-text-stroke-color: #000;
   }
 
   .progress__bar {
@@ -351,5 +368,85 @@ import banner from '../assets/banner.svg';
   img {
     max-width: 100%;
     height: auto;
+  }
+
+  @media only screen and (max-width: 450px) {
+    .banner--small {
+      display: block;
+    }
+
+    .banner--big {
+      display: none;
+    }
+
+    .padding--120px {
+      padding-top: 70px;
+    }
+
+    .section__product {
+      flex-direction: column;
+      padding: 0 20px;
+      gap: 0;
+    }
+
+    .slider__con {
+      width: auto;
+      height: 300px;
+    }
+
+    .section__product article {
+      width: auto;
+      border-radius: 0 0 30px 30px;
+      padding: 1em 2em;
+      height: auto;
+    }
+
+    .image__arrows__con {
+      padding-bottom: 0;
+    }
+
+    .dots {
+      margin-bottom: 0;
+      padding-bottom: 0.3em;
+    }
+
+    .article__text__con h1 {
+      font-size: 20px;
+    }
+
+    .article__text__con p {
+      font-size: 14px;
+    }
+
+    .section__fairtrade {
+      padding-top: 4em;
+    }
+
+    .section__fairtrade h2 {
+      font-size: 20px;
+    }
+
+    .fairtrade__con {
+      flex-direction: column;
+      padding: 0 20px;
+    }
+
+    .fairtrade__con article {
+      text-align: center;
+      padding-top: 1em;
+    }
+
+    .fairtrade__con article h3 {
+      font-size: 20px;
+      padding-top: 0;
+    }
+
+    .fairtrade__con article p {
+      font-size: 14px;
+    }
+
+    .banner--small {
+      margin: 5em 0;
+    }
   }
 </style>

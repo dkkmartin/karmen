@@ -15,6 +15,7 @@ import Button from '../components/Button.astro';
   title={'Bæredygtige Træprodukter og Miljøvenlige Valg - Karmen Webshop'}
   description={'Udforsk vores udvalg af bæredygtige træprodukter og miljøvenlige valg på Karmen Webshop. Vi tilbyder en bred vifte af produkter, herunder mini staffelier, sukkulenter, kurve, ugler og krokodiller, alt sammen lavet af bæredygtigt træ. Vores sortiment kombinerer æstetik, funktionalitet og en bevidsthed om miljøet. Vælg vores produkter med tillid, da de er skabt med omtanke for både mennesker og planeten. Oplev bæredygtig stil og kvalitet. Køb nu!'}
 >
+  <TilTopKnap />
   <div class="padding--120px">
     <section class="section__products">
       <h1>Alle <span>produkter</span></h1>
@@ -85,7 +86,6 @@ import Button from '../components/Button.astro';
         </div>
       </div>
     </section>
-    <TilTopKnap />
     <Gallery />
   </div>
 </StartLayout>
@@ -156,6 +156,28 @@ import Button from '../components/Button.astro';
 
   p {
     margin: 0.3em 0;
+  }
+
+  @media only screen and (max-width: 450px) {
+    .section__products h1 {
+      padding: 2em 20px 0 20px;
+      font-size: 20px;
+    }
+
+    .section__products {
+      padding-bottom: 4em;
+    }
+
+    .products__con {
+      padding: 2em 20px 0 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product__image__con {
+      height: 320px;
+      width: 320px;
+    }
   }
 
   @media only screen and (max-width: 1440px) {
