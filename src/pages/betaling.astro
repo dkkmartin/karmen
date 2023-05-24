@@ -12,17 +12,17 @@ import Button from '../components/Button.astro';
   <div class="padding--120px">
     <h1>Fakturering</h1>
     <section class="section__form__address">
-      <form class="form__address">
+      <form action="#paynow" class="form__address">
         <label for="address">Adresse</label>
         <input type="text" id="adress" />
         <div class="form__middle__con">
           <div>
             <label for="city">By</label>
-            <input type="text" id="city" />
+            <input type="text" id="city" class="city" />
           </div>
           <div>
             <label for="zipcode">Postnummer</label>
-            <input type="number" inputmode="numeric" id="zipcode" />
+            <input type="number" inputmode="numeric" id="zipcode" class="zipcode" />
           </div>
         </div>
         <label for="email">Email</label>
@@ -30,7 +30,7 @@ import Button from '../components/Button.astro';
         <Button class={'form__submit'} title={'Til betaling'} />
       </form>
     </section>
-    <section class="section__form__payment">
+    <section id="paynow" class="section__form__payment">
       <div class="form__payment__info">
         <h2>Betalings oversigt</h2>
         <div class="info__con">
@@ -67,7 +67,7 @@ import Button from '../components/Button.astro';
         <p>Mobile pay</p>
         <p>Paypal</p>
       </div>
-      <form class="form__payment">
+      <form action="/karmen/tak/" class="form__payment">
         <label for="ccn">Kort nummer</label>
         <input id="ccn" type="tel" inputmode="numeric" />
         <div class="form__middle__con">
@@ -230,8 +230,8 @@ import Button from '../components/Button.astro';
     max-width: 430px;
   }
 
-  #city,
-  #zipcode {
+  .city,
+  .zipcode {
     max-width: 130px;
     margin-top: 1em;
   }
@@ -278,7 +278,7 @@ import Button from '../components/Button.astro';
     }
 
     .padding--120px {
-      padding-top: 70px;
+      padding: 3em 0;
     }
 
     h1 {
@@ -287,7 +287,80 @@ import Button from '../components/Button.astro';
     }
 
     .section__form__address {
-      padding: 0 20px;
+      margin: 5em 20px;
+      padding: 2em;
+    }
+
+    label {
+      font-size: 16px;
+    }
+
+    .form__middle__con {
+      flex-direction: column;
+      gap: 1em;
+    }
+
+    .form__middle__con input {
+      margin-top: 0.7em;
+    }
+
+    .form__submit {
+      margin: 0 auto;
+    }
+
+    input {
+      font-size: 14px;
+    }
+
+    .section__form__payment {
+      margin: 0 20px;
+      display: flex;
+      flex-direction: column;
+      height: auto;
+    }
+
+    .form__payment__info {
+      border-radius: 30px 30px 0 0;
+      padding: 2em;
+    }
+
+    .form__payment__info h2 {
+      font-size: 20px;
+    }
+
+    .form__payment__info p {
+      font-size: 14px;
+    }
+
+    .info__con {
+      padding-top: 2em;
+    }
+
+    .payment__tabs {
+      padding: 1em 0;
+      font-size: 14px;
+      gap: 0;
+    }
+
+    .payment__tabs p {
+      margin: 0;
+    }
+
+    .payment__tabs p:not(.tab--active) {
+      border-bottom: 4px solid transparent;
+    }
+
+    .form__payment {
+      padding: 2em;
+      gap: 1em;
+    }
+
+    .form__payment .form__middle__con div {
+      gap: 0.5em;
+    }
+
+    .btn__order__now {
+      margin: 0 auto;
     }
   }
 </style>
