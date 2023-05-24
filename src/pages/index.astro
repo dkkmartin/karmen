@@ -21,7 +21,6 @@ import Gallery from '../layouts/Gallery.astro';
   <section class="section__hero">
     <Image class="hero__image hero--desktop" src={hero} format={'webp'} alt="Karmen webshop" />
     <Image class="hero__image hero--mobile" src={heroMobile} format={'webp'} alt="Karmen webshop" />
-
     <div class="hero__title">
       <h1>Karmen</h1>
       <p class="p--italic">- En grønnere udsigt</p>
@@ -350,6 +349,15 @@ import Gallery from '../layouts/Gallery.astro';
 
     .section__btn {
       font-size: 12px;
+    }
+
+    .product {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product__image__con {
+      position: static;
     }
   }
 </style>
