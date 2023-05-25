@@ -30,7 +30,9 @@ import { Image, Picture } from '@astrojs/image/components';
 </script>
 
 <header id="top">
-  <Image format={'webp'} src={logo} width={117} height={50} alt="Logo for Karmen webshop" />
+  <a href="">
+    <Image format={'webp'} src={logo} width={117} height={50} alt="Logo for Karmen webshop" />
+  </a>
   <Image class="menu__btn" format={'svg'} src={menu} width={35} height={30} alt="Menu knap" />
   <nav class="animate__animated">
     <i class="fa-regular fa-circle-xmark"></i>
@@ -103,7 +105,7 @@ import { Image, Picture } from '@astrojs/image/components';
     border-bottom: 3px solid var(--secondary-bg-color);
   }
 
-  @media only screen and (max-width: 450px) {
+  @media only screen and (max-width: 768px) {
     .menu__btn {
       display: block;
     }

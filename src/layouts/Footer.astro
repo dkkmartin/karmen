@@ -38,7 +38,9 @@ import Button from '../components/Button.astro';
     </div>
   </div>
   <div class="footer__con">
-    <Image src={logo} class="footer__logo" alt="Karmen logo" />
+    <a href="/karmen/">
+      <Image src={logo} class="footer__logo" alt="Karmen logo" />
+    </a>
     <Image class="menu__btn" format={'svg'} src={menuBlue} width={35} height={30} alt="Menu knap" />
     <ul>
       <li class="footer__li__1"><a href="/karmen/">Forside</a></li>
@@ -136,7 +138,17 @@ import Button from '../components/Button.astro';
     color: white;
   }
 
-  @media only screen and (max-width: 450px) {
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .footer__con {
+      grid-template-columns: 1fr 3fr;
+    }
+
+    li {
+      padding: 1.5em 0.5em;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
     footer {
       margin: 2em 0 0 0;
       height: 150px;

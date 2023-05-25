@@ -171,7 +171,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
     padding-left: 2em;
   }
 
-  @media only screen and (max-width: 450px) {
+  @media only screen and (max-width: 1024px) {
     .breadcrumbs {
       display: none;
     }
@@ -216,7 +216,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 
     .product {
       display: grid;
-      grid-template-columns: initial;
+      grid-template-columns: 1fr 1fr;
       grid-template-areas:
         'img img'
         'title price'
@@ -234,6 +234,12 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 
     .pay__btn {
       margin: 2em 0 2em 0;
+    }
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .product {
+      width: 40%;
     }
   }
 </style>

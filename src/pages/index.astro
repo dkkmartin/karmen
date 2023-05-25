@@ -318,7 +318,7 @@ import Gallery from '../layouts/Gallery.astro';
     font-weight: 300;
   }
 
-  @media only screen and (max-width: 450px) {
+  @media only screen and (max-width: 1024px) {
     .hero--mobile {
       display: block;
     }
@@ -413,6 +413,20 @@ import Gallery from '../layouts/Gallery.astro';
 
     .article__text__con p {
       font-size: 14px;
+    }
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .hero__title h1 {
+      font-size: 36px;
+    }
+
+    .hero__title p {
+      font-size: 18px;
+    }
+
+    h2 {
+      font-size: 24px;
     }
   }
 </style>

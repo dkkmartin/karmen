@@ -15,7 +15,6 @@ import StartLayout from '../layouts/StartLayout.astro';
 <style>
   section {
     color: var(--secondary-bg-color);
-
     padding: 5em 0 15em 12em;
   }
 
@@ -30,10 +29,17 @@ import StartLayout from '../layouts/StartLayout.astro';
     margin: 0;
   }
 
-  @media only screen and (max-width: 450px) {
+  @media only screen and (max-width: 1024px) {
     section {
-      height: 100vh;
+      height: 80vh;
       padding: 0 20px;
+    }
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    section {
+      height: 45vh;
+      padding: 0 120px;
     }
   }
 </style>

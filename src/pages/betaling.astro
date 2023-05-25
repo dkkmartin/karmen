@@ -91,6 +91,7 @@ import Button from '../components/Button.astro';
 <style>
   .padding--120px {
     background-color: var(--primary-bg-color);
+    padding-bottom: 10em;
   }
 
   .section__form__address {
@@ -272,7 +273,7 @@ import Button from '../components/Button.astro';
     font-weight: 500;
   }
 
-  @media only screen and (max-width: 450px) {
+  @media only screen and (max-width: 1024px) {
     .breadcrumbs {
       display: none;
     }
@@ -361,6 +362,17 @@ import Button from '../components/Button.astro';
 
     .btn__order__now {
       margin: 0 auto;
+    }
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .section__form__address {
+      margin: 5em auto;
+    }
+
+    .btn__order__now {
+      margin: 0;
+      margin-left: auto;
     }
   }
 </style>
