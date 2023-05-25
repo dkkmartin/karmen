@@ -6,11 +6,32 @@ import { Image, Picture } from '@astrojs/image/components';
 ---
 
 <script src="../scripts/menu.js"></script>
+<script src="../scripts/kurv.js"></script>
 
 <script>
   const listLink1 = document.querySelector('.li__1');
   const listLink2 = document.querySelector('.li__2');
   const listLink4 = document.querySelector('.li__4');
+  const kurvHover = document.querySelector('.modal');
+
+  listLink4.addEventListener('mouseover', () => {
+    kurvHover.classList.remove('animate__slideInDown');
+    kurvHover.classList.add('modal--active');
+    kurvHover.classList.add('animate__slideInDown');
+  });
+
+  listLink4.addEventListener('mouseleave', () => {
+    kurvHover.classList.remove('animate__slideInDown');
+    kurvHover.classList.add('animate__slideOutUp');
+    delay(200).then(() => {
+      kurvHover.classList.remove('animate__slideOutUp');
+      kurvHover.classList.remove('modal--active');
+    });
+  });
+
+  function delay(time) {
+    return new Promise((resolve) => setTimeout(resolve, time));
+  }
 
   if (screen.width > 768) {
     if (document.URL.includes('karmen/produkter')) {
@@ -42,12 +63,39 @@ import { Image, Picture } from '@astrojs/image/components';
       <li class="li__1"><a href="/karmen/">Forside</a></li>
       <li class="li__2"><a href="/karmen/produkter/">Produkter</a></li>
       <li class="li__3"><a href="">Mere info</a></li>
-      <li class="li__4"><a href="/karmen/kurv/"><i class="fa-solid fa-cart-plus"></i>Kurv</a></li>
+      <li class="li__4">
+        <div class="modal animate__animated"></div>
+        <a href="/karmen/kurv/"> <i class="fa-solid fa-cart-plus"></i>Kurv</a>
+      </li>
     </ul>
   </nav>
 </header>
 
 <style>
+  .modal {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 12px;
+    position: absolute;
+    top: 5em;
+
+    width: 150px;
+    max-height: 150px;
+    border: 1px solid var(--primary-bg-color-pink);
+    border-radius: 0 0 20px 20px;
+    background-color: var(--primary-bg-color-pink);
+    padding: 0.5em;
+    z-index: -1;
+
+    --animate-duration: 0.2s;
+  }
+
+  .modal--active {
+    display: flex;
+  }
+
   .menu__btn,
   .fa-circle-xmark {
     display: none;

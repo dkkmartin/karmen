@@ -158,6 +158,8 @@ import Gallery from '../layouts/Gallery.astro';
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr;
+    position: relative;
+    z-index: -2;
   }
 
   .hero__image,
@@ -323,7 +325,7 @@ import Gallery from '../layouts/Gallery.astro';
       display: block;
     }
 
-    .hero__--desktop {
+    .hero--desktop {
       display: none;
     }
 
