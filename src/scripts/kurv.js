@@ -36,7 +36,6 @@ export function updateKurvWithProducts () {
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i)
       const localStorageObject = JSON.parse(localStorage.getItem(key))
-      console.log(JSON.parse(localStorage.getItem(key)))
       const newP = document.createElement('p')
       newP.textContent = `${localStorageObject.name} ${localStorageObject.count}x`
       kurv.append(newP)

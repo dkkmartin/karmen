@@ -1,4 +1,5 @@
 ---
+import '../styles/produkt.css';
 import { Image, Picture } from '@astrojs/image/components';
 import Button from '../components/Button.astro';
 import StartLayout from '../layouts/StartLayout.astro';
@@ -9,6 +10,41 @@ import ugle from '../assets/ugle.png';
 import krokodille from '../assets/krokodille.png';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 ---
+
+<script>
+  const productsContainer = document.querySelector('.section__con__products');
+  const template = document.createElement('template');
+
+  if (localStorage) {
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      const localStorageObject = JSON.parse(localStorage.getItem(key));
+      const productTemplate = `<div class="product">
+        <div class="product__image__con image--staffeli">
+          <Image format={'webp'} src={staffeli} width={108} height={134} alt="${localStorageObject.alt}" />
+          </div>
+          <div class="product__title">
+            <p class="p--bold">${localStorageObject.name}</p>
+            <p class="p--faded">${localStorageObject.alt}</p>
+            </div>
+          <div class="item__counter">
+            <button class="btn__minus">-</button>
+            <p class="item__count">${localStorageObject.count}</p>
+            <button class="btn__plus">+</button>
+            </div>
+            <div class="item__price">
+              <p class="p--bold price">${localStorageObject.price} kr</p>
+              </div>
+              <div class="item__trash">
+                <i class="fa-solid fa-trash-can"></i>
+                </div>
+                </div>`;
+      template.innerHTML = productTemplate.trim();
+      const clone = template.content.cloneNode(true);
+      productsContainer.append(clone);
+    }
+  }
+</script>
 
 <StartLayout
   title={'Sikker Betaling - Karmen Webshop for Miljøvenlige Produkter'}

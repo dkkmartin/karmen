@@ -1,0 +1,77 @@
+/*
+  Når jeg update kurv listen med tilføjede produkter og sætter html ind med JS
+  så for den ikke CSS med sig af grunde jeg ikke ved, men hvis jeg importere en CSS fil med
+  CSS'en før scriptet der laver produkt så får den CSS med sig
+*/
+.product {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-items: center;
+  align-items: center;
+  width: 80%;
+  height: 185px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.product__image__con {
+  background-color: var(--primary-bg-color-pink);
+  width: 281px;
+  height: 165px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  position: relative;
+  right: 3.2em;
+  transition: 0.3s;
+}
+
+.product__image__con:hover {
+  transform: scale(1.35);
+  box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.product__title {
+  width: 130px;
+}
+
+.p--bold {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.p--faded {
+  opacity: 30%;
+}
+
+.fa-trash-can {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.item__counter {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.item__counter button {
+  background-color: inherit;
+  border: 2px solid var(--secondary-bg-color);
+  cursor: pointer;
+}
+
+.item__count {
+  background-color: var(--secondary-bg-color);
+  padding: 1em;
+  color: #fff;
+  margin: 0;
+}
+
+.btn__plus {
+  border-radius: 0px 5px 5px 0px;
+}
+
+.btn__minus {
+  border-radius: 5px 0px 0px 5px;
+}

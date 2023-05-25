@@ -43,6 +43,7 @@ const { class: className } = Astro.props;
     max-width: 1000px;
     max-height: 80px;
     position: relative;
+    /* Links kan ikke klikkes da der er z-index -2 på. Skal bruges til at hover på Kurv i header åbner sig over section */
     z-index: -2;
   }
 
