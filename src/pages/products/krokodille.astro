@@ -1,0 +1,452 @@
+---
+import StartLayout from '../../layouts/StartLayout.astro';
+import { Image, Picture } from '@astrojs/image/components';
+import plante1 from '../../assets/krokodille.png';
+import plante2 from '../../assets/krokodille.png';
+import plante3 from '../../assets/krokodille.png';
+import fscLogo from '../../assets/forest_stewardship_council.png';
+import Button from '../../components/Button.astro';
+import banner from '../../assets/banner.svg';
+import bannerMobile from '../../assets/banner_mobile.jpg';
+---
+
+<script>
+  const sliders = document.querySelectorAll('.slide');
+  const dots = Array.from(document.querySelectorAll('.dot'));
+  const arrowLeft = document.querySelector('.fa-arrow-left');
+  const arrowRight = document.querySelector('.fa-arrow-right');
+  let index = 1;
+
+  arrowLeft.addEventListener('click', () => {
+    // Fjerne class active på den viste slider
+    sliders[index].classList.remove('slide--active');
+    // Fjerne class active på den viste dot
+    dots[index].classList.remove('dot--active');
+    // Index decrement
+    index--;
+    // Hvis index er mindre end 0
+    if (index < 0) {
+      // Index giver 2
+      index = 2;
+    }
+    // Tilføjer class active på sliders[index]
+    sliders[index].classList.add('slide--active');
+    // Tilføjer class active på dots[index]
+    dots[index].classList.add('dot--active');
+  });
+
+  arrowRight.addEventListener('click', () => {
+    // Fjerne class active på den viste slider
+    sliders[index].classList.remove('slide--active');
+    // Fjerne class active på den viste dot
+    dots[index].classList.remove('dot--active');
+    // Index increment
+    index++;
+    // Hvis index er større end 2
+    if (index > 2) {
+      // Index giver 0
+      index = 0;
+    }
+    // Tilføjer class active på sliders[index]
+    sliders[index].classList.add('slide--active');
+    // Tilføjer class active på dots[index]
+    dots[index].classList.add('dot--active');
+  });
+
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      // Gemmer det clicked index nummer i variablen clickedIndex
+      const clickedIndex = dots.indexOf(dot);
+      // Fjerne class active på den viste dot
+      dots[index].classList.remove('dot--active');
+      // Fjerne class active på den viste slider
+      sliders[index].classList.remove('slide--active');
+      // index giver clickedIndex
+      index = clickedIndex;
+      // Tilføjer class active på dots[index]
+      dots[index].classList.add('dot--active');
+      // Tilføjer class active på sliders[index]
+      sliders[index].classList.add('slide--active');
+    });
+  });
+</script>
+
+<StartLayout
+  title={'Krokodille - Bæredygtighed og Skønhed fra Karmen Webshop'}
+  description={'Opdag vores krokodille legetøj, der kombinerer skønhed med bæredygtighed. Vores krokodille er lavet med omtanke for skovens økosystemer og er et ideelt valg til at tilføje. Med dens unikke egenskaber kan du være sikker på at vælge et legetøj, der passer til dine værdier og miljøansvar. Køb nu og nyd naturens skønhed på en bæredygtig måde!'}
+>
+  <div class="padding--120px">
+    <section class="section__product">
+      <div class="slider__con">
+        <div class="image__arrows__con">
+          <i class="fa-solid fa-arrow-left"></i>
+          <div class="slide slide__1">
+            <Image
+              src={plante1}
+              format={'webp'}
+              alt="Karmen sukkulent plante"
+              width={250}
+              height={58}
+            />
+          </div>
+          <div class="slide slide__2 slide--active">
+            <Image
+              src={plante2}
+              format={'webp'}
+              alt="Karmen sukkulent plante"
+              width={250}
+              height={58}
+            />
+          </div>
+          <div class="slide slide__3">
+            <Image
+              src={plante3}
+              format={'webp'}
+              alt="Karmen sukkulent plante"
+              width={250}
+              height={58}
+            />
+          </div>
+          <i class="fa-solid fa-arrow-right"></i>
+        </div>
+        <div class="dots">
+          <div class="dot"></div>
+          <div class="dot dot--active"></div>
+          <div class="dot"></div>
+        </div>
+      </div>
+      <article>
+        <div class="article__text__con">
+          <h1>Krokodille</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis repudiandae
+            voluptate quae culpa, eum aspernatur fugiat delectus rerum accusamus? Dicta eligendi
+            delectus ipsam magni. Sapiente vitae voluptate fugiat cum omnis. Voluptatibus ab sequi
+            vel ea, adipisci corporis sapiente at autem omnis aliquid commodi est repellat dolorum
+            accusamus debitis laborum similique fugiat dolores porro ad quaerat architecto. Corrupti
+            earum ullam error.
+          </p>
+          <Image src={fscLogo} format={'webp'} width={70} height={84} alt="FSC Logo" />
+        </div>
+        <Button title={'Læg i kurven'} />
+      </article>
+    </section>
+    <section class="section__fairtrade">
+      <h2>Info på vores <span>Fairtrade blomster</span></h2>
+      <div class="fairtrade__con">
+        <article>
+          <h3>Ydelser til arbejdere og deres familier</h3>
+          <p>Uddannelse til arbejdere og deres familier</p>
+          <div class="progress__bar">
+            <div class="progress--27"><p>27%</p></div>
+          </div>
+          <p>Andre ydelser for arbejde og deres familier</p>
+          <div class="progress__bar">
+            <div class="progress--20"><p>20%</p></div>
+          </div>
+          <p>Finans- og låneydelser til arbejdere og deres familier</p>
+          <div class="progress__bar">
+            <div class="progress--17"><p>17%</p></div>
+          </div>
+          <p>Sundhedsydelser til arbejdere og deres familier</p>
+          <div class="progress__bar">
+            <div class="progress--14"><p>14%</p></div>
+          </div>
+          <p>Investering i husning til arbejdere</p>
+          <div class="progress__bar">
+            <div class="progress--3"><p>3%</p></div>
+          </div>
+          <h3>Fællesskabsydelser</h3>
+          <p>Uddannelsesydelser til fællesskaber</p>
+          <div class="progress__bar">
+            <div class="progress--4"><p>4%</p></div>
+          </div>
+          <h3>Træning af arbejdere</h3>
+          <p>Træning af arbejdere</p>
+          <div class="progress__bar">
+            <div class="progress--5"><p>5%</p></div>
+          </div>
+          <p>Komité og andre komitérelaterede omkostninger</p>
+          <div class="progress__bar">
+            <div class="progress--4"><p>4%</p></div>
+          </div>
+          <p>Træning af komitémedlemmer</p>
+          <div class="progress__bar">
+            <div class="progress--2"><p>2%</p></div>
+          </div>
+        </article>
+        <aside>
+          <Image class="banner--small" src={bannerMobile} format={'webp'} alt="Ad from OnePlus 7" />
+          <Image
+            class="banner--big"
+            src={banner}
+            format={'svg'}
+            alt="Ad from OnePlus 7"
+            width={160}
+            height={600}
+          />
+        </aside>
+      </div>
+    </section>
+  </div>
+</StartLayout>
+
+<style>
+  .slide__1,
+  .slide__2,
+  .slide__3,
+  .banner--small {
+    display: none;
+  }
+
+  .slide--active {
+    display: block;
+  }
+
+  .fa-solid {
+    font-size: 2em;
+    color: var(--secondary-font-blue);
+    cursor: pointer;
+  }
+
+  .section__product {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    padding-bottom: 10em;
+  }
+
+  .section__product article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    height: 565px;
+    width: 570px;
+    padding: 4.3em;
+    background: #f5f7f9;
+    box-shadow: 0px 20px 40px rgba(13, 18, 39, 0.3);
+    border-radius: 30px;
+  }
+
+  .slider__con {
+    background-color: var(--primary-bg-color-pink);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 570px;
+  }
+
+  .article__text__con {
+    line-height: 19.2px;
+  }
+
+  .image__arrows__con {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    justify-items: center;
+    padding-bottom: 1.7em;
+  }
+
+  .dots {
+    display: flex;
+    gap: 1.5em;
+    margin-bottom: -1.7em;
+  }
+
+  .dot {
+    height: 15px;
+    width: 15px;
+    border: 1px solid var(--secondary-font-blue);
+    border-radius: 50px;
+    cursor: pointer;
+  }
+
+  .dot--active {
+    background-color: var(--secondary-font-blue);
+  }
+
+  .section__fairtrade {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .fairtrade__con {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .section__fairtrade article {
+    max-width: 600px;
+    flex: 1;
+  }
+
+  .fairtrade__con p {
+    font-size: 20px;
+    opacity: 30%;
+  }
+
+  .progress__bar p {
+    opacity: initial;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    -webkit-text-stroke-width: 0.12px;
+    -webkit-text-stroke-color: #000;
+  }
+
+  .progress__bar {
+    height: 20px;
+    background-color: var(--primary-bg-color);
+  }
+
+  .progress__bar div {
+    color: #fff;
+    padding-left: 0.5em;
+    height: 100%;
+    background-color: var(--secondary-bg-color);
+  }
+
+  .progress--27 {
+    width: 27%;
+  }
+
+  .progress--20 {
+    width: 20%;
+  }
+
+  .progress--17 {
+    width: 17%;
+  }
+
+  .progress--14 {
+    width: 14%;
+  }
+
+  .progress--3 {
+    width: 3%;
+  }
+
+  .progress--4 {
+    width: 4%;
+  }
+
+  .progress--5 {
+    width: 5%;
+  }
+
+  .progress--2 {
+    width: 2%;
+  }
+
+  h1 {
+    font-size: 48px;
+    font-weight: 400;
+  }
+
+  h2 {
+    font-size: 48px;
+  }
+
+  h3 {
+    font-size: 24px;
+    font-weight: 400;
+    padding-top: 1em;
+  }
+
+  span {
+    font-weight: 100;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  @media only screen and (max-width: 1024px) {
+    .banner--small {
+      display: block;
+    }
+
+    .banner--big {
+      display: none;
+    }
+
+    .padding--120px {
+      padding-top: 70px;
+    }
+
+    .section__product {
+      flex-direction: column;
+      padding: 0 20px;
+      gap: 0;
+    }
+
+    .slider__con {
+      width: auto;
+      height: 300px;
+    }
+
+    .section__product article {
+      width: auto;
+      border-radius: 0 0 30px 30px;
+      padding: 1em 2em;
+      height: auto;
+    }
+
+    .image__arrows__con {
+      padding-bottom: 0;
+    }
+
+    .dots {
+      margin-bottom: 0;
+      padding-bottom: 0.3em;
+    }
+
+    .article__text__con h1 {
+      font-size: 20px;
+    }
+
+    .article__text__con p {
+      font-size: 14px;
+    }
+
+    .section__fairtrade {
+      padding-top: 4em;
+    }
+
+    .section__fairtrade h2 {
+      font-size: 20px;
+    }
+
+    .fairtrade__con {
+      flex-direction: column;
+      padding: 0 20px;
+    }
+
+    .fairtrade__con article {
+      text-align: center;
+      padding-top: 1em;
+    }
+
+    .fairtrade__con article h3 {
+      font-size: 20px;
+      padding-top: 0;
+    }
+
+    .fairtrade__con article p {
+      font-size: 14px;
+    }
+
+    .banner--small {
+      margin: 5em 0;
+    }
+  }
+</style>
