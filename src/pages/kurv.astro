@@ -15,13 +15,21 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
   const productsContainer = document.querySelector('.section__con__products');
   const template = document.createElement('template');
 
-  if (localStorage) {
-    for (let i = 0; i < localStorage.length; i++) {
-      const key = localStorage.key(i);
-      const localStorageObject = JSON.parse(localStorage.getItem(key));
-      const productTemplate = `<div class="product">
-        <div class="product__image__con image--staffeli">
-          <Image format={'webp'} src={staffeli} width={108} height={134} alt="${localStorageObject.alt}" />
+  function loadProducts() {
+    if (localStorage) {
+      productsContainer.innerHTML = '';
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key === 'hasCodeRunBefore') {
+          continue;
+        } else {
+          const localStorageObject = JSON.parse(localStorage.getItem(key));
+          if (localStorageObject.count === 0) {
+            continue;
+          } else {
+            const productTemplate = `<div class="product ${localStorageObject.name.toLowerCase()}">
+        <div class="product__image__con">
+          <img src=${localStorageObject.src} alt="${localStorageObject.alt}" />
           </div>
           <div class="product__title">
             <p class="p--bold">${localStorageObject.name}</p>
@@ -33,17 +41,105 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
             <button class="btn__plus">+</button>
             </div>
             <div class="item__price">
-              <p class="p--bold price">${localStorageObject.price} kr</p>
+              <p class="p--bold price">${localStorageObject.price * localStorageObject.count} kr</p>
               </div>
               <div class="item__trash">
                 <i class="fa-solid fa-trash-can"></i>
                 </div>
                 </div>`;
-      template.innerHTML = productTemplate.trim();
-      const clone = template.content.cloneNode(true);
-      productsContainer.append(clone);
+            template.innerHTML = productTemplate.trim();
+            const clone = template.content.cloneNode(true);
+            productsContainer.append(clone);
+          }
+        }
+      }
     }
   }
+
+  loadProducts();
+  // Const skal være her. Så den tager fat efter product er blevet loaded til DOM
+  const trash = document.querySelectorAll('.fa-trash-can');
+  const btnPlus = document.querySelectorAll('.btn__plus');
+  const btnMinus = document.querySelectorAll('.btn__minus');
+  const itemCount = document.querySelectorAll('.item__count');
+
+  trash.forEach((icon) => {
+    icon.addEventListener('click', function () {
+      let productName = this.parentElement.parentElement;
+      if (productName.classList.contains('sukkulent')) {
+        productName = 'sukkulent';
+      } else if (productName.classList.contains('staffeli')) {
+        productName = 'staffeli';
+      } else if (productName.classList.contains('kurv')) {
+        productName = 'kurv';
+      } else if (productName.classList.contains('ugle')) {
+        productName = 'ugle';
+      } else if (productName.classList.contains('krokodille')) {
+        productName = 'krokodille';
+      }
+
+      const product = JSON.parse(localStorage.getItem(productName));
+      product.count = 0;
+
+      localStorage.setItem(productName, JSON.stringify(product));
+      this.parentElement.parentElement.remove();
+    });
+  });
+
+  btnPlus.forEach((btn) => {
+    btn.addEventListener('click', function () {
+      let productName = this.parentElement.parentElement;
+      const count = this.parentElement.children[1];
+      const price = this.parentElement.nextElementSibling.children[0];
+
+      if (productName.classList.contains('sukkulent')) {
+        productName = 'sukkulent';
+      } else if (productName.classList.contains('staffeli')) {
+        productName = 'staffeli';
+      } else if (productName.classList.contains('kurv')) {
+        productName = 'kurv';
+      } else if (productName.classList.contains('ugle')) {
+        productName = 'ugle';
+      } else if (productName.classList.contains('krokodille')) {
+        productName = 'krokodille';
+      }
+
+      const product = JSON.parse(localStorage.getItem(productName));
+      product.count++;
+      count.textContent = product.count;
+      price.textContent = `${product.price * product.count} Kr`;
+      localStorage.setItem(productName, JSON.stringify(product));
+    });
+  });
+
+  btnMinus.forEach((btn) => {
+    btn.addEventListener('click', function () {
+      let productName = this.parentElement.parentElement;
+      const count = this.parentElement.children[1];
+      const price = this.parentElement.nextElementSibling.children[0];
+
+      if (productName.classList.contains('sukkulent')) {
+        productName = 'sukkulent';
+      } else if (productName.classList.contains('staffeli')) {
+        productName = 'staffeli';
+      } else if (productName.classList.contains('kurv')) {
+        productName = 'kurv';
+      } else if (productName.classList.contains('ugle')) {
+        productName = 'ugle';
+      } else if (productName.classList.contains('krokodille')) {
+        productName = 'krokodille';
+      }
+
+      const product = JSON.parse(localStorage.getItem(productName));
+      product.count--;
+      count.textContent = product.count;
+      price.textContent = `${product.price * product.count} Kr`;
+      localStorage.setItem(productName, JSON.stringify(product));
+      if (count.textContent === '0') {
+        this.parentElement.parentElement.remove();
+      }
+    });
+  });
 </script>
 
 <StartLayout
@@ -54,48 +150,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
     <Breadcrumbs class="breadcrumbs" />
     <section class="section--grey">
       <h1>Indkøbskurv</h1>
-      <div class="section__con__products">
-        <div class="product">
-          <div class="product__image__con image--staffeli">
-            <Image format={'webp'} src={staffeli} width={108} height={134} alt="Mini staffeli" />
-          </div>
-          <div class="product__title">
-            <p class="p--bold">Mini staffeli</p>
-            <p class="p--faded">Inkl. malerlærred</p>
-          </div>
-          <div class="item__counter">
-            <button class="btn__minus">-</button>
-            <p class="item__count">0</p>
-            <button class="btn__plus">+</button>
-          </div>
-          <div class="item__price">
-            <p class="p--bold price">30 kr</p>
-          </div>
-          <div class="item__trash">
-            <i class="fa-solid fa-trash-can"></i>
-          </div>
-        </div>
-        <div class="product">
-          <div class="product__image__con">
-            <Image format={'webp'} src={plante} width={108} height={134} alt="Sukkulent" />
-          </div>
-          <div class="product__title">
-            <p class="p--bold">Sukkulent</p>
-            <p class="p--faded">Grøn plante</p>
-          </div>
-          <div class="item__counter">
-            <button class="btn__minus">-</button>
-            <p class="item__count">0</p>
-            <button class="btn__plus">+</button>
-          </div>
-          <div class="item__price">
-            <p class="p--bold price">50 kr</p>
-          </div>
-          <div class="item__trash">
-            <i class="fa-solid fa-trash-can"></i>
-          </div>
-        </div>
-      </div>
+      <div class="section__con__products"></div>
       <a class="pay__btn" href="/karmen/betaling/"><Button title={'Gå til betaling'} /></a>
     </section>
   </div>
