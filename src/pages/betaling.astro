@@ -1,8 +1,46 @@
 ---
+import '../styles/price.css';
 import StartLayout from '../layouts/StartLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Button from '../components/Button.astro';
 ---
+
+<script>
+  const priceContainer = document.querySelector('.info__con');
+  const template = document.createElement('template');
+  let totalPrice = 0;
+  let totalMoms = 0;
+  const fragtPrice = 30;
+  const totalPriceElement = document.querySelector('.total__price__p');
+  const momsPriceElement = document.querySelector('.moms__price__p');
+
+  if (localStorage) {
+    priceContainer.innerHTML = '';
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key === 'hasCodeRunBefore') {
+        continue;
+      } else {
+        const localStorageObject = JSON.parse(localStorage.getItem(key));
+        if (localStorageObject.count === 0) {
+          continue;
+        } else {
+          const productTemplate = `<div>
+            <p>${localStorageObject.name}</p>
+            <p>${localStorageObject.count} stk.</p>
+          </div>`;
+          template.innerHTML = productTemplate.trim();
+          const clone = template.content.cloneNode(true);
+          priceContainer.append(clone);
+          totalPrice += localStorageObject.price * localStorageObject.count;
+        }
+      }
+    }
+  }
+  totalMoms = totalPrice * 0.25;
+  momsPriceElement.textContent = `${totalMoms}`;
+  totalPriceElement.textContent = `${totalPrice + fragtPrice + totalMoms} Kr`;
+</script>
 
 <StartLayout
   title={'Udfyld Formularen - Karmen Webshop '}
@@ -14,39 +52,26 @@ import Button from '../components/Button.astro';
     <section class="section__form__address">
       <form action="#paynow" class="form__address">
         <label for="address">Adresse</label>
-        <input type="text" id="adress" />
+        <input type="text" id="adress" required />
         <div class="form__middle__con">
           <div>
             <label for="city">By</label>
-            <input type="text" id="city" class="city" />
+            <input type="text" id="city" class="city" required />
           </div>
           <div>
             <label for="zipcode">Postnummer</label>
-            <input type="number" inputmode="numeric" id="zipcode" class="zipcode" />
+            <input type="number" inputmode="numeric" id="zipcode" class="zipcode" required />
           </div>
         </div>
         <label for="email">Email</label>
-        <input type="email" id="email" />
+        <input type="email" id="email" required />
         <Button class={'form__submit'} title={'Til betaling'} />
       </form>
     </section>
     <section id="paynow" class="section__form__payment">
       <div class="form__payment__info">
         <h2>Betalings oversigt</h2>
-        <div class="info__con">
-          <div>
-            <p>Mini staffeli</p>
-            <p>1 stk.</p>
-          </div>
-          <div>
-            <p>Sukkulent</p>
-            <p>2 stk.</p>
-          </div>
-          <div class="info__padding__top info__border">
-            <p>Sum</p>
-            <p>130 DKK</p>
-          </div>
-        </div>
+        <div class="info__con"></div>
         <div class="info__con">
           <div>
             <p>Fragt</p>
@@ -54,11 +79,11 @@ import Button from '../components/Button.astro';
           </div>
           <div>
             <p>Moms</p>
-            <p>32.5 DKK</p>
+            <p class="moms__price__p"></p>
           </div>
           <div class="info__padding__top">
             <p>Total sum:</p>
-            <p>192.5 DKK</p>
+            <p class="total__price__p"></p>
           </div>
         </div>
       </div>
@@ -69,19 +94,19 @@ import Button from '../components/Button.astro';
       </div>
       <form action="/karmen/tak/" class="form__payment">
         <label for="ccn">Kort nummer</label>
-        <input id="ccn" type="tel" inputmode="numeric" />
+        <input id="ccn" type="tel" inputmode="numeric" required />
         <div class="form__middle__con">
           <div>
             <label for="expiry">Udløbsdato</label>
-            <input type="text" id="expiry" />
+            <input type="text" id="expiry" required />
           </div>
           <div>
             <label for="cvv">CVV</label>
-            <input type="number" inputmode="numeric" id="cvv" />
+            <input type="number" inputmode="numeric" id="cvv" required />
           </div>
         </div>
         <label for="card__name">Navn</label>
-        <input id="card__name" type="text" />
+        <input id="card__name" type="text" required />
         <Button title={'Bestil nu'} class={'btn__order__now'} />
       </form>
     </section>

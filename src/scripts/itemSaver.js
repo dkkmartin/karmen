@@ -12,7 +12,7 @@ window.onload = function () {
       price: 30,
       count: 0,
       alt: 'Inkl. malerlærred',
-      src: '/public/staffeli.png'
+      src: '/karmen/staffeli.png'
     }
     localStorage.setItem('staffeli', JSON.stringify(staffeli))
     const sukkulent = {
@@ -20,7 +20,7 @@ window.onload = function () {
       price: 30,
       count: 0,
       alt: 'Grøn plante',
-      src: '/public/plante_3.png'
+      src: '/karmen/plante_3.png'
     }
     localStorage.setItem('sukkulent', JSON.stringify(sukkulent))
     const kurv = {
@@ -28,7 +28,7 @@ window.onload = function () {
       price: 30,
       count: 0,
       alt: 'Kurv af træ',
-      src: '/public/kurv.png'
+      src: '/karmen/kurv.png'
     }
     localStorage.setItem('kurv', JSON.stringify(kurv))
     const ugle = {
@@ -36,7 +36,7 @@ window.onload = function () {
       price: 30,
       count: 0,
       alt: 'Ugle af træ',
-      src: '/public/ugle.png'
+      src: '/karmen/ugle.png'
     }
     localStorage.setItem('ugle', JSON.stringify(ugle))
     const krokodille = {
@@ -44,7 +44,7 @@ window.onload = function () {
       price: 65,
       count: 0,
       alt: 'Krokodille af træ',
-      src: '/public/krokodille.png'
+      src: '/karmen/krokodille.png'
     }
     localStorage.setItem('krokodille', JSON.stringify(krokodille))
     localStorage.setItem('hasCodeRunBefore', true)

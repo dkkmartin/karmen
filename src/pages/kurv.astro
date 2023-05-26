@@ -1,13 +1,7 @@
 ---
 import '../styles/produkt.css';
-import { Image, Picture } from '@astrojs/image/components';
 import Button from '../components/Button.astro';
 import StartLayout from '../layouts/StartLayout.astro';
-import plante from '../assets/plante_3.png';
-import staffeli from '../assets/staffeli.png';
-import kurv from '../assets/kurv.png';
-import ugle from '../assets/ugle.png';
-import krokodille from '../assets/krokodille.png';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 ---
 
@@ -166,10 +160,10 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
   .section--grey {
     background-color: var(--primary-bg-color);
     padding-top: 5em;
-    padding-bottom: 10em;
+
     margin-bottom: 18em;
     display: grid;
-    grid-template-rows: 1fr 4fr 1fr;
+    grid-template-rows: 100px 4fr minmax(100px, 1fr);
   }
 
   .product {
@@ -215,7 +209,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
   }
 
   .padding--120px {
-    padding-top: 0;
+    padding-top: 0 !important;
   }
 
   .pay__btn {

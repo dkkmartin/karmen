@@ -1,0 +1,8 @@
+.form__payment__info div div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form__payment__info div div p {
+  margin: 0 0 0.5em 0;
+}
